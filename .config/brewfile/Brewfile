@@ -1,0 +1,85 @@
+
+# tap repositories and their packages
+
+tap homebrew/core
+brew ansible
+brew apr
+brew apr-util
+brew argon2
+brew aspell
+brew boost
+brew c-ares
+brew freetds
+brew freetype
+brew gdbm
+brew gettext
+brew git
+brew git-flow
+brew git-lfs
+brew glib
+brew gmp
+brew htop
+brew httpd
+brew hub
+brew icu4c
+brew imap-uw
+brew jansson
+brew jemalloc
+brew jpeg
+brew jq
+brew libev
+brew libevent
+brew libffi
+brew libidn2
+brew libpng
+brew libpq
+brew libsodium
+brew libtool
+brew libunistring
+brew libyaml
+brew libzip
+brew mas
+brew mysql
+brew nghttp2
+brew openssl
+brew pcre
+brew perl
+brew php72
+brew python
+brew python@2
+brew readline
+brew ruby
+brew sqlite
+brew thefuck
+brew unixodbc
+brew vim
+brew webp
+brew wget
+brew xz
+brew zsh
+
+tap caskroom/cask
+cask firefox
+cask google-chrome
+cask hammerspoon
+cask jitouch
+cask launchbar
+cask pycharm-ce
+cask rowanj-gitx
+cask scroll-reverser
+cask sequel-pro
+cask spotifree
+cask spotify
+cask slack
+cask virtualbox
+cask visual-studio-code
+
+tap rcmdnk/file
+brew brew-file
+
+# App Store applications
+appstore 682658836 GarageBand (10.2.0)
+appstore 408981434 iMovie (10.1.8)
+appstore 409183694 Keynote (7.3.1)
+appstore 409203825 Numbers (4.3.1)
+appstore 409201541 Pages (6.3.1)

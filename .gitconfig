@@ -1,0 +1,14 @@
+[user]
+	name = Josh Burgess
+	email = jburgess@whiteoctober.co.uk
+[core]
+	excludesfile = /Users/joshburgess/.global-gitignore
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[push]
+	default = current
+[pull]
+	default = current
