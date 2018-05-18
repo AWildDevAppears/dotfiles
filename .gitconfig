@@ -3,6 +3,7 @@
 	email = jburgess@whiteoctober.co.uk
 [core]
 	excludesfile = /Users/joshburgess/.global-gitignore
+	editor = vim
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
