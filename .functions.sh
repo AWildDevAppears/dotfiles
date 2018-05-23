@@ -103,30 +103,53 @@ flen () {
 
 # decompress a file
 extract () {
-  if [ -f $1 ] ; then
-    case $1 in
-      *.tar.bz2)   tar xjf $1     ;;
-      *.tar.gz)    tar xzf $1     ;;
-      *.bz2)       bunzip2 $1     ;;
-      *.rar)       unrar e $1     ;;
-      *.gz)        gunzip $1      ;;
-      *.tar)       tar xf $1      ;;
-      *.tbz2)      tar xjf $1     ;;
-      *.tgz)       tar xzf $1     ;;
-      *.zip)       unzip $1       ;;
-      *.Z)         uncompress $1  ;;
-      *.7z)        7z x $1        ;;
-         *)     echo "'$1' cannot be extracted via extract()" ;;
-    esac
+  if [[ "$PLATFORM" == "mac" ]]; then
+    if [ -f $1 ] ; then
+      case $1 in
+        *.tar.bz2)   tar xjf $1     ;;
+        *.tar.gz)    tar xzf $1     ;;
+        *.bz2)       bunzip2 $1     ;;
+        *.rar)       unrar e $1     ;;
+        *.gz)        gunzip $1      ;;
+        *.tar)       tar xf $1      ;;
+        *.tbz2)      tar xjf $1     ;;
+        *.tgz)       tar xzf $1     ;;
+        *.zip)       unzip $1       ;;
+        *.Z)         uncompress $1  ;;
+        *.7z)        7z x $1        ;;
+          *)     echo "'$1' cannot be extracted via extract()" ;;
+      esac
+    else
+        echo "'$1' is not a valid file"
+    fi
   else
-      echo "'$1' is not a valid file"
-  fi
+    if [ -f $1 ] ; then
+      case $1 in
+        *.tar.bz2)   tar -xjf $1     ;;
+        *.tar.gz)    tar -xzf $1     ;;
+        *.bz2)       bunzip2 $1      ;;
+        *.rar)       unrar e $1      ;;
+        *.gz)        gunzip $1       ;;
+        *.tar)       tar -xf $1      ;;
+        *.tbz2)      tar -xjf $1     ;;
+        *.tgz)       tar -xzf $1     ;;
+        *.zip)       unzip $1        ;;
+        *.Z)         uncompress $1   ;;
+        *.7z)        7z e $1         ;;
+          *)     echo "'$1' cannot be extracted via extract()" ;;
+      esac
+    else
+        echo "'$1' is not a valid file"
+    fi
+  fi;
 }
 
 # find a file from command line
-spotlight () { 
-  mdfind "kMDItemDisplayName == '$@'wc"; 
-}
+if [[ "$PLATFORM" == "mac" ]]; then
+  spotlight () {
+    mdfind "kMDItemDisplayName == '$@'wc";
+  }
+fi
 
 # search and destroy a process
 bang () {
@@ -186,12 +209,12 @@ mkcd () {
   cd $1;
 }
 
-httpHeaders () { 
+httpHeaders () {
   /usr/bin/curl -I -L $@;  # httpHeaders:      Grabs headers from web page
-}            
+}
 
 #   httpDebug:  Download a web page and show info on what took time
 #   -------------------------------------------------------------------
-httpDebug () { 
-  /usr/bin/curl $@ -o /dev/null -w "dns: %{time_namelookup} connect: %{time_connect} pretransfer: %{time_pretransfer} starttransfer: %{time_starttransfer} total: %{time_total}\n"; 
+httpDebug () {
+  /usr/bin/curl $@ -o /dev/null -w "dns: %{time_namelookup} connect: %{time_connect} pretransfer: %{time_pretransfer} starttransfer: %{time_starttransfer} total: %{time_total}\n";
 }

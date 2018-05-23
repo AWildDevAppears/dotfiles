@@ -11,7 +11,9 @@ alias top="htop"
 alias git="hub"
 
 # print out your file tree
-alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+if [[ "$PLATFORM" == "mac" ]]; then
+    alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+fi;
 
 # git commands
 alias gst="git status"
