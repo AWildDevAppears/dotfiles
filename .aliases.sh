@@ -15,6 +15,8 @@ if [[ "$PLATFORM" == "mac" ]]; then
     alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 fi;
 
+alias sp="spotify"
+
 # git commands
 alias gst="git status"
 alias gco="git checkout"
