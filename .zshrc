@@ -8,6 +8,7 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 else
   export PLATFORM="unknown"
 fi
+
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/joshburgess/.oh-my-zsh
 
@@ -15,6 +16,16 @@ export ZSH=/Users/joshburgess/.oh-my-zsh
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="powerlevel9k/powerlevel9k"
+
+# Config
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status dir dir_writable vcs)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(command_execution_time virtualenv symfony2_version nvm node_version)
+
+POWERLEVEL9K_STATUS_OK_IN_NON_VERBOSE=true
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
+POWERLEVEL9K_TIME_FORMAT="%D{%H:%M}"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
