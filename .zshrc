@@ -1,6 +1,13 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+if [[ "$OSTYPE" == "linux-gnu" ]]; then
+  export PLATFORM="linux"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+  export PLATFORM="mac"
+else
+  export PLATFORM="unknown"
+fi
 # Path to your oh-my-zsh installation.
 export ZSH=/Users/joshburgess/.oh-my-zsh
 
@@ -59,6 +66,7 @@ source $ZSH/oh-my-zsh.sh
 
 export MANPATH="/usr/share/man:$MANPATH"
 
+
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
@@ -85,8 +93,6 @@ export PATH=${JAVA_HOME}/bin:$PATH
 
 export PATH=/Users/joshburgess/Code/projects/depot_tools:$PATH
 
-export PATH=/Users/joshburgess/.lumm:$PATH
-
 ##
 # GOlang
 ##
@@ -103,14 +109,10 @@ export NVM_DIR="$HOME/.nvm"
 
 export PKG_CONFIG_PATH=$(brew --prefix python3)/Frameworks/Python.framework/Versions/3.4/lib/pkgconfig:$(brew --prefix qt5)/lib/pkgconfig:$(brew --prefix oniguruma)/lib/pkgconfig
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-eval $(thefuck --alias)
-
-# The next line updates PATH for the Google Cloud SDK.
-source '/Development/google-cloud-sdk/path.zsh.inc'
-
-# The next line enables shell command completion for gcloud.
-source '/Development/google-cloud-sdk/completion.zsh.inc'
+if [[ "$PLATFORM" == "mac" ]]; then
+  export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+  eval $(thefuck --alias)
+fi
 
 source "$HOME/.exports.sh"
 source "$HOME/.aliases.sh"
