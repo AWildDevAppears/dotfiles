@@ -11,6 +11,16 @@ export PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
 export PATH=/Users/joshburgess/.rbenv/shims:/Users/joshburgess//.rbenv/completions/rbenv.bash:$PATH
 
 ##
+# SET UP PYENV
+##
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+
+if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init -)"
+fi
+
+##
 # SET UP BINARY FILES
 ##
 export PATH=/usr/bin:/bin:$PATH
