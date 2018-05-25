@@ -7,9 +7,12 @@ unzip HeadphoneAutoPause.spoon.zip
 mv HeadphoneAutoPause.spoon ~/.hammerspoon/Spoons/.
 
 # VSCode
-while read p; do                                                                                                                 ✔  209  17:16:29
+while read p; do
   code --install-extension $p
 done < vscode-extensions
+
+ln -s $(pwd)/VSCode/snippets ~/Library/Application\ Support/Code/User/snippets
+ln -s $(pwd)/VSCode/settings.json ~/Library/Application\ Support/Code/User/settings.json
 
 # Terminal
 ln -s $(pwd)/.aliases.sh ~/.aliases.sh

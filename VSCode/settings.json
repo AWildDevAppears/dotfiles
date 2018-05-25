@@ -1,0 +1,47 @@
+{
+    "workbench.colorTheme": "Panda Syntax",
+    "workbench.iconTheme": "material-icon-theme",
+    "editor.fontSize": 13,
+    "editor.renderWhitespace": "boundary",
+
+    "files.associations": {
+        ".twig": "html",
+    },
+
+    "editor.cursorBlinking": "phase",
+    "eslint.packageManager": "yarn",
+    "workbench.editor.showTabs": false,
+    "emmet.triggerExpansionOnTab": true,
+    "vsicons.projectDetection.disableDetect": true,
+    "gitlens.keymap": "alternate",
+    "files.trimTrailingWhitespace": true,
+    "sasslint.configFile": "/Users/joshburgess/.sass-lint.yml",
+    "material-icon-theme.showUpdateMessage": false,
+    "vsicons.dontShowNewVersionMessage": true,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "node_modules": true,
+        ".vscode": true,
+        "**/__pycache__": true,
+        "**/*.lock": true,
+        "**/*.pyc": true,
+    },
+    "files.associations": {
+        "*.inc": "php"
+    },
+    "gitlens.advanced.messages": {
+        "suppressCommitHasNoPreviousCommitWarning": false,
+        "suppressCommitNotFoundWarning": false,
+        "suppressFileNotUnderSourceControlWarning": false,
+        "suppressGitVersionWarning": false,
+        "suppressLineUncommittedWarning": false,
+        "suppressNoRepositoryWarning": false,
+        "suppressResultsExplorerNotice": false,
+        "suppressShowKeyBindingsNotice": true
+    },
+    "gitlens.historyExplorer.enabled": true,
+}
