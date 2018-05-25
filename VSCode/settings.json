@@ -44,4 +44,5 @@
         "suppressShowKeyBindingsNotice": true
     },
     "gitlens.historyExplorer.enabled": true,
+    "git.autofetch": true,
 }
