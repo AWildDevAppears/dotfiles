@@ -6,6 +6,7 @@
 
     "files.associations": {
         ".twig": "html",
+        "*.inc": "php"
     },
 
     "editor.cursorBlinking": "phase",
@@ -29,9 +30,6 @@
         "**/__pycache__": true,
         "**/*.lock": true,
         "**/*.pyc": true,
-    },
-    "files.associations": {
-        "*.inc": "php"
     },
     "gitlens.advanced.messages": {
         "suppressCommitHasNoPreviousCommitWarning": false,
