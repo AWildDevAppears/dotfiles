@@ -25,7 +25,7 @@
         "**/.hg": true,
         "**/CVS": true,
         "**/.DS_Store": true,
-        "node_modules": true,
+        "**/node_modules": true,
         ".vscode": true,
         "**/__pycache__": true,
         "**/*.lock": true,
@@ -43,4 +43,8 @@
     },
     "gitlens.historyExplorer.enabled": true,
     "git.autofetch": true,
+    "extensions.ignoreRecommendations": true,
+    "workbench.startupEditor": "none",
+
+    "html-css-class-completion.enableEmmetSupport": true
 }
