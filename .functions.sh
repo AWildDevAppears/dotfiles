@@ -204,6 +204,13 @@ rebase () {
   esac
 }
 
+feat() {
+  local name=$2
+  local ticket=$1
+
+  git checkout -b "feature/$($ticket)/$($name)"
+}
+
 mkcd () {
   mkdir $@;
   cd $1;
