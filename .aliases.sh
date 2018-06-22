@@ -20,6 +20,8 @@ alias sp="spotify"
 # git commands
 alias gst="git status"
 alias gco="git checkout"
+alias gcod="git checkout develop"
+alias gcom="git checkout master"
 alias gcl="git clone"
 
 # moving around the file system
