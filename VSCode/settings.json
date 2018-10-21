@@ -30,6 +30,7 @@
         "**/__pycache__": true,
         "**/*.lock": true,
         "**/*.pyc": true,
+        "**/.idea": true
     },
     "gitlens.advanced.messages": {
         "suppressCommitHasNoPreviousCommitWarning": false,
@@ -46,5 +47,11 @@
     "extensions.ignoreRecommendations": true,
     "workbench.startupEditor": "none",
 
-    "html-css-class-completion.enableEmmetSupport": true
+    "html-css-class-completion.enableEmmetSupport": true,
+    "javascript.updateImportsOnFileMove.enabled": "never",
+    "explorer.confirmDragAndDrop": false,
+    "files.insertFinalNewline": true,
+    "editor.fontFamily": "'Fira Code', Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "editor.minimap.enabled": false
 }

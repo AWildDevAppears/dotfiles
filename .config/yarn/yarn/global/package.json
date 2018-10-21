@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "create-react-app": "^1.5.2",
+    "eslint": "^4.18.2",
+    "flow-bin": "^0.68.0",
+    "npx": "^10.0.1",
+    "sass-lint": "^1.12.1"
+  }
+}

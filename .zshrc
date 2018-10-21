@@ -1,5 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
+export TERM="xterm-256color"
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
   export PLATFORM="linux"
@@ -86,11 +87,14 @@ export MANPATH="/usr/share/man:$MANPATH"
 export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='mvim'
+if [[ "$PLATFORM" == "mac" ]]; then
+  if [[ -n $SSH_CONNECTION ]]; then
+    export EDITOR='vim'
+  else
+    export EDITOR='mvim'
+  fi
 fi
+
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -134,7 +138,12 @@ source "$HOME/.aliases.sh"
 source "$HOME/.functions.sh"
 
 
-export NVM_DIR="/Users/joshburgess/.nvm"
+if [[ "$PLATFORM" == "mac" ]]; then
+  export NVM_DIR="/Users/joshburgess/.nvm"
+else
+  export NVM_DIR="/home/crow/.nvm"
+fi
+
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

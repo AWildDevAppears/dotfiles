@@ -22,6 +22,15 @@ if [[ "$PLATFORM" == "mac" ]]; then
     export PATH=/Users/joshburgess/.local/bin:$PATH
 
     export PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
+
+    export PATH=/usr/bin:/bin:$PATH
+    export PATH=:/Users/joshburgess/bin:$PATH
+    export PATH=/opt/local/bin:/opt/local/sbin:$HOME/bin:$PATH
+    export PATH=/usr/local/bin:$PATH
+    export PATH="/usr/local/sbin:$PATH"
+    export PATH=$HOME/.local/bin:$PATH
+
+    export fastlane_apple_id="jburgess@whiteoctober.co.uk"
 else
     export DEFAULT_USER="crow"
     export HOME="/home/crow"
@@ -43,6 +52,14 @@ else
 fi;
 
 
+# Fastlane
+export PATH="$HOME/.fastlane/bin:$PATH"
+
+#
+# SET UP RBENV
+##
+export PATH="$HOME/.rbenv/shims:$HOME//.rbenv/completions/rbenv.bash:$PATH"
+
 ##
 # SET UP PYENV
 ##
@@ -54,3 +71,6 @@ if command -v pyenv 1>/dev/null 2>&1; then
 fi
 
 source $HOME/.cargo/env
+##
+# SET UP BINARY FILES
+##
