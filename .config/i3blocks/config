@@ -1,0 +1,23 @@
+# # Global properties
+# #
+# # The top properties below are applied to every block, but can be overridden.
+# # Each block command defaults to the script name to avoid boilerplate.
+command=~/.config/i3blocks/scripts/$BLOCK_NAME
+separator_block_width=15
+
+[playerctl]
+label=
+instance=rhythmbox
+interval=5
+
+[apt-upgrades]
+signal=1
+interval=once
+
+[audio]
+label=
+interval=5
+
+[time]
+command=date '+%Y-%m-%d %H:%M'
+interval=1
