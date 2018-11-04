@@ -104,7 +104,10 @@ fi
 ##
 # JDK
 ##
-export JAVA_HOME=$(/usr/libexec/java_home)
+if [[ "$PLATFORM" == "mac" ]]; then
+  export JAVA_HOME=$(/usr/libexec/java_home)
+fi
+
 export ANDROID_HOME=/Users/joshburgess/Library/Android/sdk/platform-tools
 export PATH=/Users/joshburgess/Library/Android/sdk:$PATH
 export PATH=${PATH}:/Users/joshburgess/Library/Android/sdk/platform-tools:/Users/joshburgess/Library/Android/sdk/tools
@@ -126,9 +129,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-export PKG_CONFIG_PATH=$(brew --prefix python3)/Frameworks/Python.framework/Versions/3.4/lib/pkgconfig:$(brew --prefix qt5)/lib/pkgconfig:$(brew --prefix oniguruma)/lib/pkgconfig
-
 if [[ "$PLATFORM" == "mac" ]]; then
+  export PKG_CONFIG_PATH=$(brew --prefix python3)/Frameworks/Python.framework/Versions/3.4/lib/pkgconfig:$(brew --prefix qt5)/lib/pkgconfig:$(brew --prefix oniguruma)/lib/pkgconfig
   export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
   eval $(thefuck --alias)
 fi
