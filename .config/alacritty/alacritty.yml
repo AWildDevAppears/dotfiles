@@ -19,8 +19,8 @@ window:
   # Specified in number of columns/lines, not pixels.
   # If both are `0`, this setting is ignored.
   dimensions:
-    columns: 80
-    lines: 24
+    columns: 120
+    lines: 50
 
   # Window padding (changes require restart)
   #
@@ -116,7 +116,7 @@ font:
 
   # Scale the font size based on the monitor's DPI. This will lead to bigger text on HiDPI
   # screens and make reading text a little easier.
-  scale_with_dpi: true
+  scale_with_dpi: false
 
   # Thin stroke font rendering (OS X only)
   #
@@ -158,7 +158,7 @@ colors:
     text: '0x000000'
     cursor: '0xffffff'
 
-  # Normal colors
+  # Normal colors - Panda theme
   normal:
     black:   '0x000000'
     red:     '0xFF2C6D'

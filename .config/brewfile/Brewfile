@@ -1,67 +1,52 @@
+tap "caskformula/caskformula"
+tap "heroku/brew"
+tap "homebrew/bundle"
+tap "homebrew/cask"
+tap "homebrew/cask-versions"
+tap "homebrew/core"
+tap "homebrew/services"
+tap "rcmdnk/file"
 
-# tap repositories and their packages
+brew "openssl"
+brew "python@2", link: false
+brew "ansible"
+brew "docker"
+brew "elasticsearch", restart_service: true
+brew "git"
+brew "git-flow"
+brew "git-lfs"
+brew "htop"
+brew "python"
+brew "httpie"
+brew "hub"
+brew "jq"
+brew "mariadb", restart_service: true
+brew "mas"
+brew "nginx"
+brew "php", restart_service: true
+brew "pyenv"
+brew "redis"
+brew "shpotify"
+brew "thefuck"
+brew "tig"
+brew "tmux"
+brew "vim"
+brew "wget"
+brew "zsh"
+brew "heroku/brew/heroku"
+brew "rcmdnk/file/brew-file"
 
-tap homebrew/core
-brew ansible
-brew apr
-brew apr-util
-brew argon2
-brew aspell
-brew boost
-brew c-ares
-brew freetds
-brew freetype
-brew gdbm
-brew gettext
-brew git
-brew git-flow
-brew git-lfs
-brew glib
-brew gmp
-brew htop
-brew httpd
-brew hub
-brew icu4c
-brew imap-uw
-brew jansson
-brew jemalloc
-brew jpeg
-brew jq
-brew libev
-brew libevent
-brew libffi
-brew libidn2
-brew libpng
-brew libpq
-brew libsodium
-brew libtool
-brew libunistring
-brew libyaml
-brew libzip
-brew mas
-brew mysql
-brew nghttp2
-brew openssl
-brew pcre
-brew perl
-brew php72
-brew python
-brew python@2
-brew readline
-brew ruby
-brew sqlite
-brew thefuck
-brew unixodbc
-brew vim
-brew webp
-brew wget
-brew xz
-brew zsh
+mas "Keynote", id: 409183694
+mas "Microsoft OneNote", id: 784801555
+mas "Numbers", id: 409203825
+mas "Pages", id: 409201541
+mas "Xcode", id: 497799835
 
-tap caskroom/cask
+cask "fastlane"
 cask firefox
 cask google-chrome
 cask hammerspoon
+cask java8
 cask jitouch
 cask launchbar
 cask pycharm-ce
@@ -74,12 +59,4 @@ cask slack
 cask virtualbox
 cask visual-studio-code
 
-tap rcmdnk/file
 brew brew-file
-
-# App Store applications
-appstore 682658836 GarageBand (10.2.0)
-appstore 408981434 iMovie (10.1.8)
-appstore 409183694 Keynote (7.3.1)
-appstore 409203825 Numbers (4.3.1)
-appstore 409201541 Pages (6.3.1)

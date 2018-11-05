@@ -1,4 +1,2 @@
 .config/gcloud
 .config/yarn/yarn/global/node_modules/*
-
-.vim/bundle
