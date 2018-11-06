@@ -138,3 +138,4 @@ configuration {
 /*	me-accept-custom: "Control+MouseDPrimary";*/
 }
 rofi.theme: /usr/share/rofi/themes/android_notification.rasi
+rofi.font: "FiraCode 12"
