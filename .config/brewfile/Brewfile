@@ -13,6 +13,7 @@ brew "ansible"
 brew "bat"
 brew "docker"
 brew "elasticsearch", restart_service: true
+brew "fd"
 brew "git"
 brew "git-flow"
 brew "git-lfs"
