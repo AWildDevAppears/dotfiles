@@ -167,3 +167,6 @@ unsetopt correct_all
 ssh-add 2>/dev/null;
 autoload -U compinit && compinit
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Open TMUX
+[[ -z "$TMUX" ]] && exec tmux
