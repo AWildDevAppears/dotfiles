@@ -5,15 +5,6 @@
 command=~/.config/i3blocks/scripts/$BLOCK_NAME
 separator_block_width=15
 
-[playerctl]
-label=
-instance=rhythmbox
-interval=5
-
-[apt-upgrades]
-signal=1
-interval=once
-
 [audio]
 label=
 interval=5
