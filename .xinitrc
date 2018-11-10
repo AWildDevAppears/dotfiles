@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Setup  modifier keys
 xmodmap ~/.xmodmap
 
