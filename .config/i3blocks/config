@@ -7,7 +7,7 @@ separator_block_width=15
 
 [audio]
 label=
-interval=5
+interval=1
 
 [time]
 command=date '+%Y-%m-%d %H:%M'

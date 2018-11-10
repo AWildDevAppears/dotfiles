@@ -108,8 +108,12 @@ bindsym Mod4+Shift+minus move scratchpad
 # If there are multiple scratchpad windows, this command cycles through them.
 bindsym Mod4+minus scratchpad show
 
-bindsym Mod4+Control+1 exec amixer -q -D pulse sset Master 10%+ unmute
-bindsym Mod4+Control+2 exec amixer -q -D pulse sset Master 10%- unmute
+# Audio controls
+bindsym Mod4+Control+2 exec amixer -q -D pulse sset Master 5%+ unmute
+bindsym Mod4+Control+1 exec amixer -q -D pulse sset Master 5%- unmute
+bindsym Mod4+Control++Shift+2 exec amixer -q -D pulse sset Master 10%+ unmute
+bindsym Mod4+Control+Shift+1 exec amixer -q -D pulse sset Master 10%- unmute
+bindsym Mod4+Control+grave exec amixer -q -D pulse sset Master toggle
 
 # switch to workspace
 bindsym Mod4+1 workspace 1
@@ -180,3 +184,4 @@ bindsym Mod4+r mode "resize"
 exec_always --no-startup-id feh --bg-scale $HOME/Desktop/Backgrounds/86eea68160b29c84952473b7a34e5156.jpg
 exec_always --no-startup-id setxkbmap -layout us
 exec_always --no-startup-id xrandr --output DP-2 --pos 0x0 --output DP-1 --pos 1920x0
+exec_always --no-startup-id source ~/.xinitrc
