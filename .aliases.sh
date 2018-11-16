@@ -2,12 +2,6 @@
 # ALIASES
 ##
 
-# WTF!!!
-if [[ "$PLATFORM" == "mac" ]]; then
-    alias fuck='$(thefuck $(fc -ln -1))'
-    alias fml="fuck"
-fi
-
 # replace existing stuff
 alias top="htop"
 alias git="hub"

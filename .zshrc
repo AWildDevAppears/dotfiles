@@ -132,7 +132,6 @@ export NVM_DIR="$HOME/.nvm"
 if [[ "$PLATFORM" == "mac" ]]; then
   export PKG_CONFIG_PATH=$(brew --prefix python3)/Frameworks/Python.framework/Versions/3.4/lib/pkgconfig:$(brew --prefix qt5)/lib/pkgconfig:$(brew --prefix oniguruma)/lib/pkgconfig
   export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
-  eval $(thefuck --alias)
 fi
 
 source "$HOME/.exports.sh"
@@ -170,3 +169,4 @@ autoload -U compinit && compinit
 
 # Open TMUX
 [[ -z "$TMUX" ]] && exec tmux
+clr

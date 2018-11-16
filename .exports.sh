@@ -4,8 +4,6 @@ if [[ "$PLATFORM" == "mac" ]]; then
     export DEFAULT_USER="joshburgess"
     export HOME="/Users/joshburgess"
 
-    export PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
-
     ##
     # SET UP RBENV
     ##
