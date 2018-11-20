@@ -170,15 +170,6 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bar {
-    status_command i3blocks
-    position top
-    font pango:FiraCode, FontAwesome 11
-    strip_workspace_numbers yes
-    separator_symbol "|"
-    mode dock
-}
-
 bindsym Mod4+r mode "resize"
 
 exec_always --no-startup-id feh --bg-scale $HOME/Desktop/Backgrounds/86eea68160b29c84952473b7a34e5156.jpg

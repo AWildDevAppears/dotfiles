@@ -1,0 +1,144 @@
+[colours]
+background = #2a2c2d
+background-alt = #31353a
+foreground = #E6E6E6
+foreground-alt = #FFFFFF
+
+; ANSI Colours
+c = ${colours.background-alt}
+red = #FF2C6D
+orange = #FFB86C
+pink = #FF75B5
+blue = #45A9F9
+purple = #B084EB
+green = #19F9D8
+
+[bar/bottom]
+enable-ipc = true
+bottom = true
+monitor = ${env:MONITOR:}
+width = 100%
+height = 26
+
+background = ${colours.background}
+foreground = ${colours.foreground}
+
+line-color = #1f1f1f
+line-size = 1
+
+padding-left = 2
+padding-right = 2
+module-margin-left = 0
+module-margin-right = 0
+
+
+separator = 
+font-0 = FiraCode:size=11;3
+font-1 = Font Awesome 5 Free:size=11;2
+font-2 = Font Awesome 5 Brands:size=11;2
+font-3 = Font Awesome 5 Free Solid:size=11;2
+
+modules-left = i3
+modules-center = date
+modules-right = volume powermenu
+
+
+[module/i3]
+type = internal/i3
+pin-workspaces = true
+strip-wsnumbers = true
+index-sort = true
+enable-click = true
+enable-scroll = false
+fuzzy-match = false
+
+ws-icon-0 = 1;I
+ws-icon-1 = 2;II
+ws-icon-2 = 3;III
+ws-icon-3 = 4;IV
+ws-icon-4 = 5;V
+ws-icon-5 = 6;VI
+ws-icon-6 = 7;VII
+ws-icon-7 = 8;VIII
+ws-icon-8 = 9;IX
+ws-icon-9 = 10;X
+ws-icon-10 = 91;
+ws-icon-11 = 92;
+ws-icon-12 = 93;
+ws-icon-default = 
+
+format = <label-state> <label-mode>
+
+label-mode = %mode%
+label-mode-background = ${colours.background}
+label-mode-foreground = ${colours.pink}
+label-mode-padding = 0
+
+label-focused = %icon%
+label-focused-foreground = ${colours.foreground}
+label-focused-background = ${colours.blue}
+label-focused-padding = 1
+
+label-unfocused = %icon%
+label-unfocused-foreground = ${colours.foreground}
+label-unfocused-background = ${colours.background}
+label-unfocused-padding = 1
+
+label-visible = %icon%
+label-visible-foreground = ${colours.foreground}
+label-visible-background = ${colours.background-alt}
+label-visible-padding = 1
+
+label-urgent = %icon%
+label-urgent-foreground = ${colours.foreground}
+label-urgent-background = ${colours.pink}
+label-urgent-padding = 1
+
+
+[module/date]
+type = internal/date
+
+label-padding = 1
+
+date = %%{F#E6E6E6} %d/%m/%Y%%{F-}  %%{F#E6E6E6} %H:%M%%{F-}
+date-alt = %%{F#fff} %A, %d %B %Y  %%{F#fff}%H:%M%%{F-}
+
+[module/volume]
+type = internal/alsa
+master-mixer = Master
+
+format-volume = "<ramp-volume>  <label-volume>"
+format-volume-padding = 1
+
+label-volume = %percentage%%
+label-volume-foreground = ${colours.foreground}
+
+label-muted = " Muted"
+label-muted-foreground = ${colours.red}
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+
+reverse-scroll = true
+
+[module/powermenu]
+type = custom/menu
+
+format-padding = 0
+format-foreground = ${colours.purple}
+
+label-open = 
+label-open-padding = 1
+
+label-close = 
+label-close-padding = 1
+
+menu-0-0 = 
+menu-0-0-foreground = ${colours.orange}
+menu-0-0-exec = sudo reboot
+menu-0-0-padding = 1
+
+menu-0-1 = 
+menu-0-1-foreground = ${colours.orange}
+menu-0-1-exec = shutdown now
+menu-0-1-padding = 1
