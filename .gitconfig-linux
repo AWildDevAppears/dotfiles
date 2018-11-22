@@ -1,0 +1,15 @@
+[user]
+	name = Josh Burgess
+	email = joshuacburgess32@gmail.com
+[core]
+	excludesfile = /home/crow/.global-gitignore
+	editor = vim
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[push]
+	default = current
+[pull]
+	default = current

@@ -20,7 +20,7 @@ ln -s $(pwd)/.exports.sh ~/.exports.sh
 ln -s $(pwd)/.functions.sh ~/.functions.sh
 ln -s $(pwd)/.zshrc ~/.zshrc
 ln -s $(pwd)/.global-gitignore ~/.global-gitignore
-ln -s $(pwd)/.gitconfig ~/.gitconfig
+ln -s $(pwd)/.gitconfig-mac ~/.gitconfig
 
 ln -s $(pwd)/.config ~/.config
 
