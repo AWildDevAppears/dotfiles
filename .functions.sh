@@ -51,18 +51,9 @@ gitp () {
   git p$@
 }
 
-dash () {
-  open dash://$@
-}
-
 mcd () {
   mkdir $@
   cd $@
-}
-
-go- () {
-  cd $@
-  clr
 }
 
 p () {
@@ -73,21 +64,6 @@ p () {
 pro () {
   cd ~/Code/projects/$@
   clr
-}
-
-exec-here () {
-  location=$(pwd)
-  cd $1
-  ${*:2}
-  cd $location
-}
-alias run-here="exec-here"
-
-new-script () {
-  echo  "#/bin/bash" > ~/bin/$1
-  chmod 755 ~/bin/$1
-  echo "successfully made ~/bin/$1"
-  subl ~/bin/$1
 }
 
 # count amount of lines in a file
@@ -144,22 +120,6 @@ extract () {
   fi;
 }
 
-# find a file from command line
-if [[ "$PLATFORM" == "mac" ]]; then
-  spotlight () {
-    mdfind "kMDItemDisplayName == '$@'wc";
-  }
-fi
-
-# search and destroy a process
-bang () {
-  kill -9  $@
-}
-
-webtest () {
-  open -a "$(/usr/local/bin/Google\ Chrome.app/  -url 'http:')" "$@"
-}
-
 parse_git_branch () {
   git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
@@ -202,13 +162,6 @@ rebase () {
     * )
       printf "REBASE\n\nrebase on [branch],\nrebase skip (git rebase --skip),\nrebase next (git rebase --continue),\nrebase stop (git rebase --abort)\n\n"
   esac
-}
-
-feat() {
-  local name=$2
-  local ticket=$1
-
-  git checkout -b "feature/$($ticket)/$($name)"
 }
 
 mkcd () {
