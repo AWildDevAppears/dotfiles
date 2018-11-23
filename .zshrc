@@ -139,13 +139,9 @@ source "$HOME/.aliases.sh"
 source "$HOME/.functions.sh"
 
 
-if [[ "$PLATFORM" == "mac" ]]; then
-  export NVM_DIR="/Users/joshburgess/.nvm"
-else
-  export NVM_DIR="/home/crow/.nvm"
-fi
-
+export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
@@ -165,7 +161,6 @@ export PATH="$PATH:/opt/yarn-[version]/bin"
 unsetopt correct_all
 ssh-add 2>/dev/null;
 autoload -U compinit && compinit
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Open TMUX
 [[ -z "$TMUX" ]] && exec tmux
