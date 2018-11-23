@@ -111,8 +111,8 @@ bindsym Mod4+minus scratchpad show
 # Audio controls
 bindsym Mod5+2 exec amixer -q -D pulse sset Master 5%+ unmute
 bindsym Mod5+1 exec amixer -q -D pulse sset Master 5%- unmute
-bindsym Mod5+Shift+2 exec amixer -q -D pulse sset Master 10%+ unmute
-bindsym Mod5+Shift+1 exec amixer -q -D pulse sset Master 10%- unmute
+bindsym Mod5+Shift+2 exec amixer -q -D pulse sset Master 9%+ unmute
+bindsym Mod5+Shift+1 exec amixer -q -D pulse sset Master 9%- unmute
 bindsym Mod5+grave exec amixer -q -D pulse sset Master toggle
 
 # switch to workspace
@@ -172,7 +172,7 @@ mode "resize" {
 
 bindsym Mod4+r mode "resize"
 
-exec_always --no-startup-id feh --bg-scale $HOME/Desktop/Backgrounds/86eea68160b29c84952473b7a34e5156.jpg
+exec_always --no-startup-id feh --bg-scale $HOME/Documents/jack.jpg
 exec_always --no-startup-id setxkbmap -layout us
 exec_always --no-startup-id xrandr --output DP2 --pos 0x0 --output DP1 --pos 1920x0
 exec_always --no-startup-id xmodmap ~/.xmodmap
