@@ -6,4 +6,4 @@ These are my dotfiles that I use on both Mac and Linux, most files are cross com
 
 ## Screenshots
 
-![Linux - terminal and editor side by side](./images/terminal-and-vscode.png)
+![Arch - polybar and wallpaper](./images/desktop.png)
