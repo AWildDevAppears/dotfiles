@@ -151,12 +151,8 @@ export PATH="$PATH:$HOME/.rvm/bin"
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
-# Minicom
-export PATH=/opt/minicom/2.2/bin:$PATH
-
 #Yarn
 export PATH="$PATH:/opt/yarn-[version]/bin"
-
 
 unsetopt correct_all
 ssh-add 2>/dev/null;
