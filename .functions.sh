@@ -18,7 +18,7 @@ caniuse () {
 }
 
 oman () {
-  local domain="http://man.cx/"
+  local domain="https://linux.die.net/man/1/"
   local query
 
   if [ $# -eq 0 ]; then
