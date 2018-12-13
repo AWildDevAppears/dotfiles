@@ -20,6 +20,12 @@ alias gcod="git checkout develop"
 alias gcom="git checkout master"
 alias gcl="git clone"
 
+if [[ "$PLATFORM" == "mac" ]]; then
+    alias git-author="git commit --amend --author=\"Josh Burgess <jburgess@whiteoctober.co.uk>\""
+else
+    alias git-author="git commit --amend --author=\"Josh Burgess <joshuacburgess32@gmail.com>\""
+fi;
+
 # moving around the file system
 alias treset="cd ~;clear;ls"
 alias clr="clear;ls"
