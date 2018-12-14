@@ -11,11 +11,7 @@ else
 fi
 
 # Path to your oh-my-zsh installation.
-if [[ "$PLATFORM" == "mac" ]]; then
-  export ZSH=/Users/joshburgess/.oh-my-zsh
-elif [[ "$PLATFORM" == "linux" ]]; then
-  export ZSH=/home/crow/.oh-my-zsh
-fi
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -108,12 +104,10 @@ if [[ "$PLATFORM" == "mac" ]]; then
   export JAVA_HOME=$(/usr/libexec/java_home)
 fi
 
-export ANDROID_HOME=/Users/joshburgess/Library/Android/sdk/platform-tools
-export PATH=/Users/joshburgess/Library/Android/sdk:$PATH
-export PATH=${PATH}:/Users/joshburgess/Library/Android/sdk/platform-tools:/Users/joshburgess/Library/Android/sdk/tools
+export ANDROID_HOME=${HOME}/Library/Android/sdk/platform-tools
+export PATH=${HOME}/Library/Android/sdk:$PATH
+export PATH=${PATH}:${HOME}/Library/Android/sdk/platform-tools:${HOME}/Library/Android/sdk/tools
 export PATH=${JAVA_HOME}/bin:$PATH
-
-export PATH=/Users/joshburgess/Code/projects/depot_tools:$PATH
 
 ##
 # GOlang
