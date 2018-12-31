@@ -11,8 +11,8 @@ while read p; do
   code --install-extension $p
 done < vscode-extensions
 
-ln -s $(pwd)/VSCode/snippets ~/Library/Application\ Support/Code/User/snippets
-ln -s $(pwd)/VSCode/settings.json ~/Library/Application\ Support/Code/User/settings.json
+ln -s $(pwd)/.config/Code\ -\ OSS/snippets ~/Library/Application\ Support/Code/User/snippets
+ln -s $(pwd)/.config/Code\ -\ OSS/settings.json ~/Library/Application\ Support/Code/User/settings.json
 
 # Terminal
 ln -s $(pwd)/.aliases.sh ~/.aliases.sh
