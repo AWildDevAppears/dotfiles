@@ -55,5 +55,6 @@
     "editor.fontLigatures": true,
     "editor.minimap.enabled": false,
     "kite.editorMetricsEnabled": "no",
-    "kite.showDocsNotificationOnStartup": false
+    "kite.showDocsNotificationOnStartup": false,
+    "explorer.confirmDelete": false
 }
