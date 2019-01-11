@@ -33,8 +33,8 @@ ln -s $(pwd)/.config/alacritty ~/.config/alacritty
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
     #  VSCode settings
-    ln -s $(pwd)/.config/Code\ -\ OSS/snippets ~/.config/Code\ -\ OSS/snippets
-    ln -s $(pwd)/.config/Code\ -\ OSS/settings.json ~/.config/Code\ -\ OSS/settings.json
+    ln -s $(pwd)/.config/Code\ -\ OSS/User/snippets ~/.config/Code\ -\ OSS/snippets
+    ln -s $(pwd)/.config/Code\ -\ OSS/User/settings.json ~/.config/Code\ -\ OSS/settings.json
 
     ln -s $(pwd)/.config/dunst ~/.config/dunst
     ln -s $(pwd)/.config/i3 ~/.config/i3
@@ -43,8 +43,8 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
     ln -s $(pwd)/.config/rofi ~/.config/rofi
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     # VSCode settings
-    ln -s $(pwd)/.config/Code\ -\ OSS/snippets ~/Library/Application\ Support/Code/User/snippets
-    ln -s $(pwd)/.config/Code\ -\ OSS/settings.json ~/Library/Application\ Support/Code/User/settings.json
+    ln -s $(pwd)/.config/Code\ -\ OSS/User/snippets ~/Library/Application\ Support/Code/User/snippets
+    ln -s $(pwd)/.config/Code\ -\ OSS/User/settings.json ~/Library/Application\ Support/Code/User/settings.json
 
     ln -s $(pwd)/.config/karabiner ~/.config/karabiner
     ln -s $(pwd)/.config/brewfile ~/.config/brewfile
