@@ -56,5 +56,6 @@
     "editor.minimap.enabled": false,
     "kite.editorMetricsEnabled": "no",
     "kite.showDocsNotificationOnStartup": false,
-    "explorer.confirmDelete": false
+    "explorer.confirmDelete": false,
+    "kite.showWelcomeNotificationOnStartup": false
 }
