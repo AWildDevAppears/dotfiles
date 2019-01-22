@@ -3,7 +3,7 @@
 	email = joshuacburgess32@gmail.com
 [core]
 	excludesfile = /home/crow/.global-gitignore
-	editor = vim
+	editor = nvim
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true

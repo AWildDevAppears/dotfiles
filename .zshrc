@@ -83,14 +83,7 @@ export MANPATH="/usr/share/man:$MANPATH"
 export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-if [[ "$PLATFORM" == "mac" ]]; then
-  if [[ -n $SSH_CONNECTION ]]; then
-    export EDITOR='vim'
-  else
-    export EDITOR='mvim'
-  fi
-fi
-
+export EDITOR='nvim'
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
