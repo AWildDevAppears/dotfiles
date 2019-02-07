@@ -62,3 +62,5 @@ set tm=500
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
+autocmd FileType javascript set formatprg=prettier\ --stdin
+
