@@ -6,60 +6,67 @@ tap "homebrew/cask-versions"
 tap "homebrew/core"
 tap "homebrew/services"
 tap "rcmdnk/file"
-
+cask "java8"
 brew "openssl"
-brew "python@2", link: false
 brew "ansible"
 brew "bat"
-brew "docker"
+brew "docker", link: false
 brew "elasticsearch", restart_service: true
 brew "fd"
 brew "git"
 brew "git-flow"
 brew "git-lfs"
+brew "go"
 brew "htop"
-brew "python"
 brew "httpie"
 brew "hub"
+brew "hugo"
 brew "jq"
 brew "mariadb", restart_service: true
 brew "mas"
+brew "neovim"
 brew "nginx"
 brew "php", restart_service: true
 brew "pyenv"
+brew "python@2"
 brew "redis"
 brew "ripgrep"
 brew "shpotify"
-brew "thefuck"
 brew "tig"
 brew "tmux"
+brew "tree"
 brew "vim"
 brew "wget"
+brew "zlib"
 brew "zsh"
 brew "heroku/brew/heroku"
 brew "rcmdnk/file/brew-file"
-
+cask "alacritty"
+cask "android-file-transfer"
+cask "appcleaner"
+cask "db-browser-for-sqlite"
+cask "docker"
+cask "fastlane"
+cask "firefox"
+cask "fork"
+cask "gimp"
+cask "google-chrome"
+cask "hammerspoon"
+cask "handbrake"
+cask "imageoptim"
+cask "karabiner-elements"
+cask "kite"
+cask "realm-studio"
+cask "scroll-reverser"
+cask "sequel-pro"
+cask "sketch"
+cask "slack"
+cask "spotifree"
+cask "virtualbox"
+cask "visual-studio-code"
 mas "Keynote", id: 409183694
 mas "Microsoft OneNote", id: 784801555
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
+mas "Telephone", id: 406825478
 mas "Xcode", id: 497799835
-
-cask "fastlane"
-cask firefox
-cask google-chrome
-cask hammerspoon
-cask java8
-cask jitouch
-cask launchbar
-cask pycharm-ce
-cask rowanj-gitx
-cask scroll-reverser
-cask sequel-pro
-cask spotifree
-cask spotify
-cask slack
-cask virtualbox
-cask visual-studio-code
-
-brew brew-file
