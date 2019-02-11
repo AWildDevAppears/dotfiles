@@ -31,6 +31,8 @@ ln -s $(pwd)/.global-gitignore ~/.global-gitignore
 ln -s $(pwd)/.config/htop ~/.config/htop
 ln -s $(pwd)/.config/alacritty ~/.config/alacritty
 
+ln -s $(pwd)/.tmux.conf ~/.tmux.conf
+
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
     #  VSCode settings
     ln -s $(pwd)/.config/Code\ -\ OSS/User/snippets ~/.config/Code\ -\ OSS/snippets
@@ -54,3 +56,23 @@ if [[ "$OSTYPE" == "darwin"* ]]; then
     # Finder
     defaults write com.apple.finder AppleShowAllFiles -bool true && killall Finder
 fi
+
+echo "Setting up TMUX"
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+
+echo "Setting up VIM"
+ln -s /Users/joshburgess/Code/dotfiles/.vimrc ~/.vimrc
+ln -s /Users/joshburgess/Code/dotfiles/.config/nvim ~/.config/nvim
+
+mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+	curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
+echo "Install NVM"
+mkdir ~/.nvm
+wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
+
+source "~/.zshrc"
+
+echo "Installation complete"
+echo "Please restart your terminal and use Crtl+F I to install the tmux plugins"s 
