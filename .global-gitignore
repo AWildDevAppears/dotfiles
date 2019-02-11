@@ -8,6 +8,7 @@ Thumbs.db
 
 .vscode
 .idea
+tags
 
 # Compiled assets
 *.pyc

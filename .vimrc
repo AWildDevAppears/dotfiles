@@ -5,7 +5,9 @@ filetype plugin indent on
 set encoding=utf8
 set autoread
 set backspace=indent,eol,start
+set path+=**
 
+" Nerd Tree
 let NERDTreeShowHidden=1
 let NERDTreeAutoDeleteBuffer = 1
 let NERDTreeMinimalUI = 1
@@ -19,18 +21,12 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
-nnoremap <Left> <Nop>
-nnoremap <Right> <Nop>
-nnoremap <Up> <Nop>
-nnoremap <Down> <Nop>
-
 set ruler
 
 set wildmenu
 
 " Compiled assets
 set wildignore=*.o,*~,*.pyc
-
 
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
 
@@ -63,4 +59,16 @@ highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
 autocmd FileType javascript set formatprg=prettier\ --stdin
+
+
+" Key bindings
+nmap <f> :YcmCompleter FixIt<CR>
+nnoremap <Left> <Nop>
+nnoremap <Right> <Nop>
+nnoremap <Up> <Nop>
+nnoremap <Down> <Nop>
+
+
+" Commands
+command! MakeTags !ctags -R .
 
