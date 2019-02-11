@@ -1,0 +1,6 @@
+set mouse = no
+
+
+
+bind status P       !git push
+
