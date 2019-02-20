@@ -27,6 +27,7 @@ autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in
 let g:ale_sign_error = '●'
 let g:ale_sign_warning = '.'
 let g:ale_lint_on_enter = 0
+let g:ale_sign_column_always = 1
 
 set ruler
 set number
@@ -37,6 +38,12 @@ set wildmenu
 set wildignore=*.o,*~,*.pyc
 
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
+
+set wildignore+=.node_modules/**
+
+" YouCompleteMe
+let g:ycm_error_symbol = '●'
+let g:ycm_autoclose_preview_window_after_completion = 1
 
 set ignorecase
 set hlsearch
@@ -60,13 +67,14 @@ set ai
 set si
 set wrap
 
-
 set t_vb=
 set tm=500
 
+" Whitespace highlighting
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
 
+" Run prettier on javascript files
 autocmd FileType javascript set formatprg=prettier\ --stdin
 
 " Key bindings
