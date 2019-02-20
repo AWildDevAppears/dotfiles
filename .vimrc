@@ -1,4 +1,6 @@
 execute pathogen#infect()
+colorscheme koehler
+
 syntax on
 filetype plugin indent on
 
@@ -21,7 +23,13 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 
+" ALE
+let g:ale_sign_error = '●'
+let g:ale_sign_warning = '.'
+let g:ale_lint_on_enter = 0
+
 set ruler
+set number
 
 set wildmenu
 
@@ -52,6 +60,7 @@ set ai
 set si
 set wrap
 
+
 set t_vb=
 set tm=500
 
@@ -60,14 +69,12 @@ match ExtraWhitespace /\s\+$/
 
 autocmd FileType javascript set formatprg=prettier\ --stdin
 
-
 " Key bindings
 nmap <f> :YcmCompleter FixIt<CR>
 nnoremap <Left> <Nop>
 nnoremap <Right> <Nop>
 nnoremap <Up> <Nop>
 nnoremap <Down> <Nop>
-
 
 " Commands
 command! MakeTags !ctags -R .
