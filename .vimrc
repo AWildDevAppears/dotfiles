@@ -91,6 +91,9 @@ nnoremap <Right> <Nop>
 nnoremap <Up> <Nop>
 nnoremap <Down> <Nop>
 
+inoremap jj <Esc>
+inoremap jk <Esc>
+
 " Commands
 command! MakeTags !ctags -R .
 
