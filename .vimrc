@@ -2,6 +2,7 @@ execute pathogen#infect()
 colorscheme koehler
 
 syntax on
+set nocompatible
 filetype plugin indent on
 
 set encoding=utf8
@@ -34,12 +35,18 @@ set number
 
 set wildmenu
 
+" Airline
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme='badwolf'
+
 " Compiled assets
 set wildignore=*.o,*~,*.pyc
 
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
+set wildignore+=*.bmp,*.png,*.gif,*.jpg,*.jpeg,*.ico
 
-set wildignore+=.node_modules/**
+set wildignore+=*.min.css,*.min.js
+set wildignore+=.node_modules/*
 
 " YouCompleteMe
 let g:ycm_error_symbol = '●'
