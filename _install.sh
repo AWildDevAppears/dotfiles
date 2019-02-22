@@ -2,12 +2,17 @@
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
     # Hammerspoon
+    echo "Installing Hammerspoon config"
     git clone git@github.com:AWildDevAppears/hammerspoon-config.git
     mv hammerspoon-config ~/.hammerspoon
     git clone https://github.com/nathancahill/anycomplete.git ~/.hammerspoon/anycomplete
     wget https://github.com/Hammerspoon/Spoons/raw/master/Spoons/HeadphoneAutoPause.spoon.zip
     unzip HeadphoneAutoPause.spoon.zip
     mv HeadphoneAutoPause.spoon ~/.hammerspoon/Spoons/.
+
+    wget https://github.com/Hammerspoon/Spoons/raw/master/Spoons/SpoonInstall.spoon.zip
+    unzip SpoonInstall.spoon.zip
+    mv SpoonInstall.spoon ~/.hammerspoon/Spoons/.
 fi
 
 if [[ "$OSTYPE" == "linux-gnu" ]]; then
@@ -60,7 +65,6 @@ fi
 echo "Setting up TMUX"
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-
 echo "Setting up VIM"
 ln -s /Users/joshburgess/Code/dotfiles/.vimrc ~/.vimrc
 ln -s /Users/joshburgess/Code/dotfiles/.config/nvim ~/.config/nvim
@@ -75,4 +79,4 @@ wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | 
 source "~/.zshrc"
 
 echo "Installation complete"
-echo "Please restart your terminal and use Crtl+F I to install the tmux plugins"s 
+echo "Please restart your terminal and use Crtl+F I to install the tmux plugins"
