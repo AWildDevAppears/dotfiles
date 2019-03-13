@@ -57,5 +57,7 @@
     "kite.editorMetricsEnabled": "no",
     "kite.showDocsNotificationOnStartup": false,
     "explorer.confirmDelete": false,
-    "kite.showWelcomeNotificationOnStartup": false
+    "kite.showWelcomeNotificationOnStartup": false,
+    "vim.enableNeovim": true,
+    "vim.neovimPath": "/usr/local/bin/nvim"
 }
