@@ -36,9 +36,6 @@ alias lss="ls -la"
 
 #editor commands
 alias c="code" # Visual Studio Code
-if [[ "$PLATFORM" == "mac" ]]; then
-    alias mvim="/Applications/MacVim.app/Contents/bin/mvim" # MacVim
-fi;
 
 # opening and editing the bash profile
 alias bashup="clear; source ~/.bash_profile"
@@ -72,3 +69,18 @@ alias tracert="traceroute"
 if [[ "$PLATFORM" == "mac" ]]; then
    alias geny="open /Applications/Genymotion.app"
 fi;
+
+
+# Replacements
+
+# exa over ls
+if [ -x "$(command -v exa)" ]; then
+    alias ls="exa"
+fi
+
+# RipGrep over grep
+if [ -x "$(command -v rg)" ]; then
+    alias grep="rg"
+fi
+
+
