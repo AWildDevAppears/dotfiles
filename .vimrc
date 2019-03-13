@@ -48,9 +48,20 @@ set wildignore+=*.bmp,*.png,*.gif,*.jpg,*.jpeg,*.ico
 set wildignore+=*.min.css,*.min.js
 set wildignore+=.node_modules/*
 
-" YouCompleteMe
-let g:ycm_error_symbol = '●'
-let g:ycm_autoclose_preview_window_after_completion = 1
+" Deoplete
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#jedi#show_docstring = 1
+
+
+function! s:check_back_space() abort "{{{
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction"}}}
+
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ deoplete#manual_complete()
 
 set ignorecase
 set hlsearch
