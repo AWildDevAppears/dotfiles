@@ -2,16 +2,10 @@
 # ALIASES
 ##
 
-# replace existing stuff
-alias top="htop"
-alias git="hub"
-
 # print out your file tree
 if [[ "$PLATFORM" == "mac" ]]; then
     alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 fi;
-
-alias sp="spotify"
 
 # git commands
 alias gst="git status"
@@ -27,9 +21,7 @@ else
 fi;
 
 # moving around the file system
-alias treset="cd ~;clear;ls"
 alias clr="clear;ls"
-alias r-treset="cd /;clear"
 alias pclr="clear;pwd;ls"
 alias cd..="cd .."
 alias lss="ls -la"
@@ -38,9 +30,7 @@ alias lss="ls -la"
 alias c="code" # Visual Studio Code
 
 # opening and editing the bash profile
-alias bashup="clear; source ~/.bash_profile"
 alias zshup="clear; source ~/.zshrc;"
-alias c-bash="code ~/.bash_profile ~/.aliases.sh ~/.functions.sh ~/.exports.sh ~/.zshrc"
 
 # shortcuts
 if [[ "$PLATFORM" == "mac" ]]; then
@@ -83,4 +73,10 @@ if [ -x "$(command -v rg)" ]; then
     alias grep="rg"
 fi
 
+if [ -x "$(command -v htop)" ]; then
+    alias top="htop"
+fi
 
+if [ -x "$(command -v hub)" ]; then
+    alias git="hub"
+fi
