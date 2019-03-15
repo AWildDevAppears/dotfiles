@@ -1,8 +1,40 @@
-execute pathogen#infect()
 colorscheme koehler
 
 syntax on
 set nocompatible
+
+" Dein
+set runtimepath+=~/.cache/dein/repos/github.com/Shougo/dein.vim
+
+if dein#load_state('~/.cache/dein')
+    call dein#begin('~/.cache/dein')
+
+    call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
+
+    call dein#add('Shougo/deoplete.nvim')
+    call dein#add('tpope/vim-fugitive')
+    call dein#add('tpope/vim-surround')
+    call dein#add('scrooloose/nerdtree')
+    call dein#add('scrooloose/nerdcommenter')
+    call dein#add('vim-airline/vim-airline')
+    call dein#add('vim-airline/vim-airline-themes')
+    call dein#add('editorconfig/editorconfig-vim')
+    call dein#add('mattn/emmet-vim')
+    call dein#add('wsdjeg/dein-ui.vim')
+
+    " Conditionals
+    call dein#add('carlitux/deoplete-ternjs', {'on_ft': ['js', 'jsx', 'json', 'ts', 'tsx']})
+    call dein#add('racer-rust/vim-racer', {'on_ft': ['rs']})
+    call dein#add('zchee/deoplete-jedi', {'on_ft': ['py', 'rpy']})
+    call dein#add('HerringtonDarkholme/yats.vim')
+    call dein#add('mhartington/nvim-typescript', {'build': './install.sh', 'on_ft': ['ts', 'tsx']})
+    call dein#add('pangloss/vim-javascript', {'on_ft': ['js', 'jsx', 'json']})
+
+
+    call dein#end()
+    call dein#save_state()
+endif
+
 filetype plugin indent on
 
 set encoding=utf8
@@ -29,6 +61,16 @@ let g:ale_sign_error = '●'
 let g:ale_sign_warning = '.'
 let g:ale_lint_on_enter = 0
 let g:ale_sign_column_always = 1
+
+" TernJS
+let g:deoplete#sources#ternjs#types = 1
+let g:deoplete#sources#ternjs#depths = 1
+let g:deoplete#sources#ternjs#docs = 1
+let g:deoplete#sources#ternjs#case_insensitive = 1
+
+" JS
+
+
 
 set ruler
 set number
