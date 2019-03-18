@@ -22,9 +22,7 @@ fi;
 
 # moving around the file system
 alias clr="clear;ls"
-alias pclr="clear;pwd;ls"
 alias cd..="cd .."
-alias lss="ls -la"
 
 #editor commands
 alias c="code" # Visual Studio Code
@@ -37,8 +35,6 @@ if [[ "$PLATFORM" == "mac" ]]; then
     alias brewi="brew install"
     alias brewu="brew update"
     alias brewit="brew upgrade"
-    alias lfind="find ~/ -name"
-    alias afind="find / -name"
 fi;
 
 # ip
@@ -55,11 +51,6 @@ if [[ "$PLATFORM" == "mac" ]]; then
 fi;
 
 alias tracert="traceroute"
-
-if [[ "$PLATFORM" == "mac" ]]; then
-   alias geny="open /Applications/Genymotion.app"
-fi;
-
 
 # Replacements
 
