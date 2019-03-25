@@ -24,12 +24,13 @@ if dein#load_state('~/.cache/dein')
 
     " Conditionals
     call dein#add('carlitux/deoplete-ternjs', {'on_ft': ['js', 'jsx', 'json', 'ts', 'tsx']})
-    call dein#add('racer-rust/vim-racer', {'on_ft': ['rs']})
+    call dein#add('ebastianmarkow/deoplete-rust')
     call dein#add('zchee/deoplete-jedi', {'on_ft': ['py', 'rpy']})
     call dein#add('HerringtonDarkholme/yats.vim')
     call dein#add('mhartington/nvim-typescript', {'build': './install.sh', 'on_ft': ['ts', 'tsx']})
     call dein#add('pangloss/vim-javascript', {'on_ft': ['js', 'jsx', 'json']})
-
+    call dein#add('zchee/deoplete-clang')
+    call dein#add('deoplete-plugins/deoplete-go', {'build': 'make'})
 
     call dein#end()
     call dein#save_state()
@@ -68,11 +69,14 @@ let g:deoplete#sources#ternjs#depths = 1
 let g:deoplete#sources#ternjs#docs = 1
 let g:deoplete#sources#ternjs#case_insensitive = 1
 
-" JS
+" Rust
 
+let g:deoplete#sources#rust#racer_binary='~/.cargo/bin/racer'
+let g:deoplete#sources#rust#rust_source_path='~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu'
 
+" Clang
+let g:deoplete#sources#clang#libclang_path='/usr/lib/libclang.so'
 
-set ruler
 set number
 
 set wildmenu
@@ -108,6 +112,8 @@ inoremap <silent><expr> <TAB>
 set ignorecase
 set hlsearch
 set incsearch
+
+set colorcolumn=120
 
 set lazyredraw
 
@@ -146,6 +152,14 @@ nnoremap <Down> <Nop>
 
 inoremap jj <Esc>
 inoremap jk <Esc>
+
+inoremap <C-a> <C-o>0
+inoremap <C-e> <C-o>$
+
+inoremap <M-Left> <C-o>b
+inoremap <M-Right> <C-o>w
+inoremap <M-h> <C-o>b
+inoremap <M-l> <C-o>w
 
 " Commands
 command! MakeTags !ctags -R .
