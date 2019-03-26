@@ -80,6 +80,10 @@ let g:deoplete#sources#rust#rust_source_path='~/.rustup/toolchains/stable-x86_64
 " Clang
 let g:deoplete#sources#clang#libclang_path='/usr/lib/libclang.so'
 
+" GOlang
+let g:deoplete#sources#go#gocode_binary=$GOPATH.'/bin/gocode'
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+
 " END DEOPLETE
 " ============
 
