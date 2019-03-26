@@ -24,13 +24,13 @@ if dein#load_state('~/.cache/dein')
 
     " Conditionals
     call dein#add('carlitux/deoplete-ternjs', {'on_ft': ['js', 'jsx', 'json', 'ts', 'tsx']})
-    call dein#add('ebastianmarkow/deoplete-rust')
+    call dein#add('sebastianmarkow/deoplete-rust')
     call dein#add('zchee/deoplete-jedi', {'on_ft': ['py', 'rpy']})
     call dein#add('HerringtonDarkholme/yats.vim')
     call dein#add('mhartington/nvim-typescript', {'build': './install.sh', 'on_ft': ['ts', 'tsx']})
     call dein#add('pangloss/vim-javascript', {'on_ft': ['js', 'jsx', 'json']})
     call dein#add('zchee/deoplete-clang')
-    call dein#add('deoplete-plugins/deoplete-go', {'build': 'make'})
+    call dein#add('deoplete-plugins/deoplete-go', {'build': 'make', 'on_ft': ['go']})
 
     call dein#end()
     call dein#save_state()
@@ -63,6 +63,10 @@ let g:ale_sign_warning = '.'
 let g:ale_lint_on_enter = 0
 let g:ale_sign_column_always = 1
 
+" Deoplete
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#jedi#show_docstring = 1
+
 " TernJS
 let g:deoplete#sources#ternjs#types = 1
 let g:deoplete#sources#ternjs#depths = 1
@@ -70,20 +74,23 @@ let g:deoplete#sources#ternjs#docs = 1
 let g:deoplete#sources#ternjs#case_insensitive = 1
 
 " Rust
-
 let g:deoplete#sources#rust#racer_binary='~/.cargo/bin/racer'
 let g:deoplete#sources#rust#rust_source_path='~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu'
 
 " Clang
 let g:deoplete#sources#clang#libclang_path='/usr/lib/libclang.so'
 
-set number
-
-set wildmenu
+" END DEOPLETE
+" ============
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_theme='badwolf'
+
+set ruler
+set number
+
+set wildmenu
 
 " Compiled assets
 set wildignore=*.o,*~,*.pyc
@@ -93,11 +100,6 @@ set wildignore+=*.bmp,*.png,*.gif,*.jpg,*.jpeg,*.ico
 
 set wildignore+=*.min.css,*.min.js
 set wildignore+=.node_modules/*
-
-" Deoplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#jedi#show_docstring = 1
-
 
 function! s:check_back_space() abort "{{{
   let col = col('.') - 1
@@ -110,7 +112,7 @@ inoremap <silent><expr> <TAB>
       \ deoplete#manual_complete()
 
 set ignorecase
-set hlsearch
+set nohlsearch
 set incsearch
 
 set colorcolumn=120
@@ -160,7 +162,10 @@ inoremap <M-Left> <C-o>b
 inoremap <M-Right> <C-o>w
 inoremap <M-h> <C-o>b
 inoremap <M-l> <C-o>w
+inoremap <M-k> <C-o>G
+inoremap <M-j> <C-o>gg
 
 " Commands
 command! MakeTags !ctags -R .
 
+iab target="_blank" target="_blank" rel="noopener noreferrer"
