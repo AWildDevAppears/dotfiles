@@ -11,7 +11,6 @@ if dein#load_state('~/.cache/dein')
 
     call dein#add('~/.cache/dein/repos/github.com/Shougo/dein.vim')
 
-    call dein#add('Shougo/deoplete.nvim')
     call dein#add('tpope/vim-fugitive')
     call dein#add('tpope/vim-surround')
     call dein#add('scrooloose/nerdtree')
@@ -22,19 +21,27 @@ if dein#load_state('~/.cache/dein')
     call dein#add('mattn/emmet-vim')
     call dein#add('wsdjeg/dein-ui.vim')
 
-    " Conditionals
-    call dein#add('carlitux/deoplete-ternjs', {'on_ft': ['js', 'jsx', 'json', 'ts', 'tsx']})
-    call dein#add('sebastianmarkow/deoplete-rust')
-    call dein#add('zchee/deoplete-jedi', {'on_ft': ['py', 'rpy']})
+    call dein#add('Shougo/neosnippet.vim')
+    call dein#add('Shougo/neosnippet-snippets')
+
+    call dein#add('Shougo/denite.nvim')
+
+    call dein#add('Valloric/YouCompleteMe', {'merged': 0})
+
     call dein#add('HerringtonDarkholme/yats.vim')
     call dein#add('mhartington/nvim-typescript', {'build': './install.sh', 'on_ft': ['ts', 'tsx']})
     call dein#add('pangloss/vim-javascript', {'on_ft': ['js', 'jsx', 'json']})
-    call dein#add('zchee/deoplete-clang')
-    call dein#add('deoplete-plugins/deoplete-go', {'build': 'make', 'on_ft': ['go']})
+    call dein#add('fatih/vim-go')
 
     call dein#end()
     call dein#save_state()
 endif
+
+let g:ycm_semantic_triggers = {
+    \   'css': [ 're!^\s{4}', 're!:\s+' ],
+    \   'scss': [ 're!^\s{4}', 're!:\s+' ],
+    \   'less': [ 're!^\s{4}', 're!:\s+' ],
+    \ }
 
 filetype plugin indent on
 
@@ -62,30 +69,6 @@ let g:ale_sign_error = '●'
 let g:ale_sign_warning = '.'
 let g:ale_lint_on_enter = 0
 let g:ale_sign_column_always = 1
-
-" Deoplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#jedi#show_docstring = 1
-
-" TernJS
-let g:deoplete#sources#ternjs#types = 1
-let g:deoplete#sources#ternjs#depths = 1
-let g:deoplete#sources#ternjs#docs = 1
-let g:deoplete#sources#ternjs#case_insensitive = 1
-
-" Rust
-let g:deoplete#sources#rust#racer_binary='~/.cargo/bin/racer'
-let g:deoplete#sources#rust#rust_source_path='~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu'
-
-" Clang
-let g:deoplete#sources#clang#libclang_path='/usr/lib/libclang.so'
-
-" GOlang
-let g:deoplete#sources#go#gocode_binary=$GOPATH.'/bin/gocode'
-let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-
-" END DEOPLETE
-" ============
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
@@ -170,6 +153,4 @@ inoremap <M-k> <C-o>G
 inoremap <M-j> <C-o>gg
 
 " Commands
-command! MakeTags !ctags -R .
-
 iab target="_blank" target="_blank" rel="noopener noreferrer"
