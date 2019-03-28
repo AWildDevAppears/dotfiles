@@ -31,6 +31,7 @@ if dein#load_state('~/.cache/dein')
     call dein#add('pangloss/vim-javascript', {'on_ft': ['js', 'jsx', 'json']})
     call dein#add('zchee/deoplete-clang')
     call dein#add('deoplete-plugins/deoplete-go', {'build': 'make', 'on_ft': ['go']})
+    call dein#add('fatih/vim-go')
 
     call dein#end()
     call dein#save_state()
@@ -80,12 +81,11 @@ let g:deoplete#sources#rust#rust_source_path='~/.rustup/toolchains/stable-x86_64
 " Clang
 let g:deoplete#sources#clang#libclang_path='/usr/lib/libclang.so'
 
-" GOlang
+" Golang
 let g:deoplete#sources#go#gocode_binary=$GOPATH.'/bin/gocode'
 let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
 
 " END DEOPLETE
-" ============
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
