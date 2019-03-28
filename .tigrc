@@ -1,6 +1,6 @@
 set mouse = no
 
-
-
 bind status P       !git push
+bind status A       !git commit --amend --no-edit
+bind status a       !git commit --amend
 
