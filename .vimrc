@@ -20,6 +20,7 @@ if dein#load_state('~/.cache/dein')
     call dein#add('editorconfig/editorconfig-vim')
     call dein#add('mattn/emmet-vim')
     call dein#add('wsdjeg/dein-ui.vim')
+    call dein#add('jparise/vim-graphql')
 
     call dein#add('Shougo/neosnippet.vim')
     call dein#add('Shougo/neosnippet-snippets')
@@ -50,6 +51,9 @@ set autoread
 set backspace=indent,eol,start
 set path+=**
 
+set list
+set listchars=tab:>-
+
 " Nerd Tree
 let NERDTreeShowHidden=1
 let NERDTreeAutoDeleteBuffer = 1
@@ -60,9 +64,12 @@ let NERDTreeIgnore = ['\.pyc$','^node_modules$', '^.git$', '\.DS_Store$']
 nnoremap <Leader>f :NERDTreeToggle<Enter>
 
 autocmd StdinReadPre * let s:std_in=1
-
-autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+
+" Fugitive
+if exists("*fugitive#statusline")
+  set statusline+=%{fugitive#statusline()}
+endif
 
 " ALE
 let g:ale_sign_error = '●'
@@ -72,6 +79,9 @@ let g:ale_sign_column_always = 1
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#branch#enabled = 1
+let g:airline#extensions#ale#enabled = 1
+let g:airline_skip_empty_sections = 1
 let g:airline_theme='badwolf'
 
 set ruler
@@ -92,11 +102,6 @@ function! s:check_back_space() abort "{{{
   let col = col('.') - 1
   return !col || getline('.')[col - 1]  =~ '\s'
 endfunction"}}}
-
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ deoplete#manual_complete()
 
 set ignorecase
 set nohlsearch
@@ -151,6 +156,15 @@ inoremap <M-h> <C-o>b
 inoremap <M-l> <C-o>w
 inoremap <M-k> <C-o>G
 inoremap <M-j> <C-o>gg
+
+cnoreabbrev W! w!
+cnoreabbrev Q! q!
+cnoreabbrev Wq wq
+cnoreabbrev Wa wa
+cnoreabbrev wQ wq
+cnoreabbrev WQ wq
+cnoreabbrev W w
+cnoreabbrev Q q
 
 " Commands
 iab target="_blank" target="_blank" rel="noopener noreferrer"
