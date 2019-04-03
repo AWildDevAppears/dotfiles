@@ -21,6 +21,9 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
   ln -s $(pwd)/.gitconfig-mac ~/.gitconfig
 fi
 
+# Git attributes
+ln -S $(pwd)/.config/git/attributes ~/.config/git/attributes
+
 # VSCode
 while read p; do
   code --install-extension $p
