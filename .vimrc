@@ -32,7 +32,7 @@ if dein#load_state('~/.cache/dein')
     call dein#add('HerringtonDarkholme/yats.vim')
     call dein#add('mhartington/nvim-typescript', {'build': './install.sh', 'on_ft': ['ts', 'tsx']})
     call dein#add('pangloss/vim-javascript', {'on_ft': ['js', 'jsx', 'json']})
-    call dein#add('fatih/vim-go')
+    call dein#add('fatih/vim-go', ['on_ft': ['go', 'golang']])
 
     call dein#end()
     call dein#save_state()
