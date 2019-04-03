@@ -39,9 +39,9 @@ if dein#load_state('~/.cache/dein')
 endif
 
 let g:ycm_semantic_triggers = {
-    \   'css': [ 're!^\s{4}', 're!:\s+' ],
-    \   'scss': [ 're!^\s{4}', 're!:\s+' ],
-    \   'less': [ 're!^\s{4}', 're!:\s+' ],
+    \   'css': [ 're!^\s', 're!:\s+', ': '],
+    \   'scss': [ 're!^\s', 're!:\s+', ': '],
+    \   'less': [ 're!^\s', 're!:\s+', ': '],
     \ }
 
 filetype plugin indent on
@@ -52,7 +52,7 @@ set backspace=indent,eol,start
 set path+=**
 
 set list
-set listchars=tab:>-
+set listchars=tab:»-,trail:·
 
 " Nerd Tree
 let NERDTreeShowHidden=1
@@ -130,10 +130,6 @@ set wrap
 set t_vb=
 set tm=500
 
-" Whitespace highlighting
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-
 " Run prettier on javascript files
 autocmd FileType javascript set formatprg=prettier\ --stdin
 
@@ -165,6 +161,3 @@ cnoreabbrev wQ wq
 cnoreabbrev WQ wq
 cnoreabbrev W w
 cnoreabbrev Q q
-
-" Commands
-iab target="_blank" target="_blank" rel="noopener noreferrer"
