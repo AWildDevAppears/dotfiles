@@ -5,7 +5,7 @@ These are my dotfiles that I use on both Mac and Linux, most files are cross com
 ## Screenshots
 
 ![Arch - polybar and wallpaper](./images/desktop.png)
-
+![Vim](./images/vim.png)
 
 ## Required fonts
 * [Devicons](http://konpa.github.io/devicon/)
