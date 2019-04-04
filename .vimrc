@@ -21,7 +21,7 @@ if dein#load_state('~/.cache/dein')
     call dein#add('mattn/emmet-vim')
     call dein#add('wsdjeg/dein-ui.vim')
     call dein#add('jparise/vim-graphql')
-
+    call dein#add('w0rp/ale')
 
     call dein#add('Shougo/neosnippet.vim')
     call dein#add('Shougo/neosnippet-snippets')
@@ -33,8 +33,9 @@ if dein#load_state('~/.cache/dein')
     call dein#add('HerringtonDarkholme/yats.vim')
     call dein#add('mhartington/nvim-typescript', {'build': './install.sh', 'on_ft': ['ts', 'tsx']})
     call dein#add('pangloss/vim-javascript', {'on_ft': ['js', 'jsx', 'json']})
+    call dein#add('mxw/vim-jsx', { 'on_ft': ['js', 'jsx']})
     call dein#add('jamshedvesuna/vim-markdown-preview', {'on_ft': ['md', 'markdown']})
-    call dein#add('fatih/vim-go', ['on_ft': ['go', 'golang']])
+    call dein#add('fatih/vim-go', {'on_ft': ['go', 'golang']})
 
     call dein#end()
     call dein#save_state()
@@ -67,11 +68,19 @@ nnoremap <Leader>f :NERDTreeToggle<Enter>
 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+autocmd BufWritePre * %s/\s\+$//e
 
 " Fugitive
 if exists("*fugitive#statusline")
   set statusline+=%{fugitive#statusline()}
 endif
+
+" Emmet
+let g:user_emmet_settings = {
+  \  'javascript.jsx' : {
+    \      'extends' : 'jsx',
+    \  },
+  \}
 
 " ALE
 let g:ale_sign_error = '●'
