@@ -71,3 +71,7 @@ fi
 if [ -x "$(command -v hub)" ]; then
     alias git="hub"
 fi
+
+if [ -x "$(command -v nvim)" ]; then
+    alias vim="nvim"
+fi
