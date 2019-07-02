@@ -72,9 +72,6 @@ echo "Setting up VIM"
 ln -s /Users/joshburgess/Code/dotfiles/.vimrc ~/.vimrc
 ln -s /Users/joshburgess/Code/dotfiles/.config/nvim ~/.config/nvim
 
-mkdir -p ~/.vim/autoload ~/.vim/bundle && \
-	curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-
 echo "Install NVM"
 mkdir ~/.nvm
 wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.34.0/install.sh | bash
