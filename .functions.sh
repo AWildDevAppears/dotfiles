@@ -57,12 +57,7 @@ mcd () {
 }
 
 p () {
-  cd ~/Code/sites/$@
-  clr
-}
-
-pro () {
-  cd ~/Code/projects/$@
+  cd ~/Code/$@
   clr
 }
 
