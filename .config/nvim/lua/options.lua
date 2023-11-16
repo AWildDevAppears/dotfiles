@@ -1,7 +1,7 @@
 vim.opt.backup = false
 vim.opt.clipboard = "unnamedplus"
-vim.opt.cmdheight = 2
-vim.opt.completeopt = { "menuone", "noselect" }
+vim.opt.cmdheight = 1
+vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.opt.conceallevel = 0
 vim.opt.fileencoding = "utf-8"
 vim.opt.hlsearch = true
@@ -11,7 +11,7 @@ vim.opt.showmode = false
 
 vim.opt.smartcase = true
 vim.opt.smartindent = true
-vim.opt.splitbelow =true
+vim.opt.splitbelow = true
 vim.opt.splitright = true
 
 vim.opt.undofile = true
@@ -27,6 +27,5 @@ vim.opt.numberwidth = 4
 vim.opt.signcolumn = "yes"
 vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
-
 
 vim.opt.termguicolors = true
