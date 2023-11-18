@@ -1,7 +1,0 @@
-require("config/telescope")
-require("config/neo-tree")
-require("config/mason")
-require("config/treesitter")
-require("config/conform")
-require("config/lint")
-require("config/git")
