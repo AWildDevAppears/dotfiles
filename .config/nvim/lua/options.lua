@@ -1,3 +1,4 @@
+vim.opt.autowrite = true
 vim.opt.backup = false
 vim.opt.clipboard = "unnamedplus"
 vim.opt.cmdheight = 1
@@ -6,6 +7,7 @@ vim.opt.conceallevel = 0
 vim.opt.fileencoding = "utf-8"
 vim.opt.hlsearch = true
 vim.opt.ignorecase = true
+vim.opt.spelllang = { "en" }
 
 vim.opt.showmode = false
 
@@ -29,3 +31,7 @@ vim.opt.scrolloff = 8
 vim.opt.sidescrolloff = 8
 
 vim.opt.termguicolors = true
+
+
+-- Grep
+vim.opt.grepprg = "rg --vimgrep"

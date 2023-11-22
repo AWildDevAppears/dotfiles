@@ -13,10 +13,12 @@ return {
         vim.cmd([[nnoremap C-b :Neotree toggle<cr>]])
 
         vim.cmd([[
+            if !exists('$GIT_EXEC_PATH')
             augroup NEOTREE_AUGROUP
             autocmd!
             au VimEnter * lua vim.defer_fn(function() vim.cmd("Neotree show left") end, 10)
             augroup END
+            endif
         ]])
     end
 }

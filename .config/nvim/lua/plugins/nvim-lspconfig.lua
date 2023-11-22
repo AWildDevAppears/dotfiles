@@ -17,6 +17,9 @@ return {
         {
             "hrsh7th/cmp-cmdline",
         },
+        {
+            "folke/neodev.nvim",
+        },
     },
     init = function()
         local servers = {
@@ -64,6 +67,18 @@ return {
             map("n", "<leader>gi", vim.lsp.buf.implementation, bufopts)
             map("n", "<leader>gr", vim.lsp.buf.rename, bufopts)
         end
+
+        require("which-key").register({
+            ["<leader>"] = {
+                g = {
+                    name = "+global",
+                    d = { name = "goto definition" },
+                    D = { name = "goto declaration" },
+                    i = { name = "goto implementation" },
+                    r = { name = "rename" },
+                }
+            }
+        })
 
         -- Setup LSPconfig
         local lspconfig = require('lspconfig')

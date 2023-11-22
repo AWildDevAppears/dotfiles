@@ -8,7 +8,7 @@ return {
         end,
         backends = { "treesitter", "lsp", "man" },
         layout = {
-            min_width = 40,
+            min_width = 30,
         },
         show_guides = true,
         filter_kind = {

@@ -8,5 +8,6 @@ return {
             }
         }
     },
+    event = { "VeryLazy" },
     opts = {},
 }
