@@ -66,6 +66,7 @@ return {
             map("n", "<leader>gd", vim.lsp.buf.definition, bufopts)
             map("n", "<leader>gi", vim.lsp.buf.implementation, bufopts)
             map("n", "<leader>gr", vim.lsp.buf.rename, bufopts)
+            map("n", "<leader>ga", vim.lsp.buf.code_action, bufopts)
         end
 
         require("which-key").register({
@@ -95,6 +96,13 @@ return {
                             }
                         }
                     },
+                })
+            elseif lsp == "tsserver" then
+                lspconfig[lsp].setup({
+                    on_attach = on_attach,
+                    capabilities = capabilities,
+                    filetypes = { "typescript", "typescriptreact", "typescript.tsx", },
+                    cmd = { "typescript-language-server", "--stdio" }
                 })
             else
                 lspconfig[lsp].setup({

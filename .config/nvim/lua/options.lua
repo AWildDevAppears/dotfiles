@@ -32,6 +32,7 @@ vim.opt.sidescrolloff = 8
 
 vim.opt.termguicolors = true
 
+vim.opt.list = true
 
 -- Grep
 vim.opt.grepprg = "rg --vimgrep"
