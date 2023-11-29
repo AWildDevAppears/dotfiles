@@ -48,19 +48,12 @@ return {
         local cmp = require("cmp")
         local lspkind = require("lspkind")
 
-
         local opts = { noremap = true, silent = true }
-        vim.keymap.set('n', '<C-j>', '<Cmd>Lspsaga diagnostic_jump_next<CR>', opts)
-        vim.keymap.set('n', 'K', '<Cmd>Lspsaga hover_doc<CR>', opts)
-        vim.keymap.set('n', 'gd', '<Cmd>Lspsaga lsp_finder<CR>', opts)
-        vim.keymap.set('i', '<C-k>', '<Cmd>Lspsaga signature_help<CR>', opts)
-        vim.keymap.set('n', 'gp', '<Cmd>Lspsaga preview_definition<CR>', opts)
-
-        -- local has_words_before = function()
-        --    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-        --    return col ~= 0 and
-        --        vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-        -- end
+        vim.keymap.set("n", "<C-j>", "<Cmd>Lspsaga diagnostic_jump_next<cr>", opts)
+        vim.keymap.set("n", "K", "<Cmd>Lspsaga hover_doc<cr>", opts)
+        vim.keymap.set("n", "<C-a>", "<Cmd>Lspsaga code_action<cr>", opts)
+        vim.keymap.set({ "n", "t" }, "<A-t>", "<Cmd>Lspsaga term_toggle<cr>", opts)
+        vim.keymap.set("n", "<leader>r", "<Cmd>Lspsaga rename<cr>", opts)
 
         ---@diagnostic disable-next-line: missing-fields
         cmp.setup({

@@ -1,3 +1,5 @@
+-- Colorscheme
+-- This file sets up my color scheme
 return {
     "Shatur/neovim-ayu",
     opts = {

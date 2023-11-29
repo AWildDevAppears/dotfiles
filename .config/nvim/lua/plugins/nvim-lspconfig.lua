@@ -20,42 +20,50 @@ return {
         {
             "folke/neodev.nvim",
         },
+        {
+            "williamboman/mason.nvim"
+        },
+        {
+            "williamboman/mason-lspconfig.nvim",
+        },
+        {
+            "slint-ui/vim-slint"
+        },
     },
     init = function()
         local servers = {
             -- Lua
             "lua_ls",
-
             -- Rust
             "rust_analyzer",
-
             -- C
             "clangd",
-
             -- CSS
             "cssls",
             "cssmodules_ls",
             "emmet_ls",
-
             -- HTML
             "html",
-
             -- JS
             "jsonls",
             "tsserver",
-
             -- Vue
-            "volar",
-
+            "vuels",
             -- Markdown
             "zk",
-
             -- Python
             "pyright",
-
             -- TOML
             "taplo",
+
+            -- Slint
+            "slint_lsp",
         }
+
+        require("mason").setup()
+        require("mason-lspconfig").setup({
+            automatic_installation = true,
+        })
 
         local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
@@ -65,7 +73,6 @@ return {
             map("n", "<leader>gD", vim.lsp.buf.declaration, bufopts)
             map("n", "<leader>gd", vim.lsp.buf.definition, bufopts)
             map("n", "<leader>gi", vim.lsp.buf.implementation, bufopts)
-            map("n", "<leader>gr", vim.lsp.buf.rename, bufopts)
             map("n", "<leader>ga", vim.lsp.buf.code_action, bufopts)
         end
 
@@ -101,7 +108,7 @@ return {
                 lspconfig[lsp].setup({
                     on_attach = on_attach,
                     capabilities = capabilities,
-                    filetypes = { "typescript", "typescriptreact", "typescript.tsx", },
+                    filetypes = { "typescript", "typescriptreact", "typescript.tsx", "vue" },
                     cmd = { "typescript-language-server", "--stdio" }
                 })
             else

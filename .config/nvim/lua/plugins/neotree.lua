@@ -10,7 +10,7 @@ return {
     opts = {},
     init = function()
         vim.cmd([[nnoremap \ :Neotree reveal<cr>]])
-        vim.cmd([[nnoremap C-b :Neotree toggle<cr>]])
+        vim.cmd([[nnoremap <C-b> :Neotree toggle<cr>]])
 
         vim.cmd([[
             if !exists('$GIT_EXEC_PATH')

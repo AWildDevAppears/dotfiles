@@ -13,6 +13,7 @@ return {
         vim.keymap.set("n", "<leader>pq", function() require("trouble").toggle("quickfix") end)
         vim.keymap.set("n", "<leader>pl", function() require("trouble").toggle("loclist") end)
         vim.keymap.set("n", "gR", function() require("trouble").toggle("lsp_references") end)
+        vim.keymap.set("n", "<leader>pt", "<Cmd>TodoTrouble<cr>", { silent = true })
 
         local wk = require("which-key")
 
