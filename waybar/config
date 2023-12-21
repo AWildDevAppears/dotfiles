@@ -1,0 +1,28 @@
+{
+	"layer": "top",
+	"position": "top",
+	"height": 30,
+	"margin-bottom": 5,
+	"spacing": 4,
+	"modules-left": [
+		"sway/mode",
+		"sway/workspaces"
+	],
+	"modules-center": [
+		"sway/window"
+	],
+	"modules-right": [
+        "wlr/taskbar",
+        "clock"
+	],
+    "sway/window": {
+        "icon": true
+    },
+    "clock": {
+    "format": "{:%a %d %b %Y - %R}"
+    },
+    "wlr/taskbar": {
+        "on-click": "activate",
+        "on-click-middle": "close"
+    }
+}
