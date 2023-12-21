@@ -7,6 +7,7 @@ return {
         overrides = {
             Comment = { fg = "#F29E74" }, -- Comment color
             LineNr = { fg = "#F29E74" },
+            NotifyBackground = { bg = "#1F2430" },
         }
     },
     config = function(_, opts)

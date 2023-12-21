@@ -36,8 +36,6 @@ return {
             "lua_ls",
             -- Rust
             "rust_analyzer",
-            -- C
-            "clangd",
             -- CSS
             "cssls",
             "cssmodules_ls",
@@ -58,6 +56,9 @@ return {
 
             -- Slint
             "slint_lsp",
+
+            -- GOlang
+            "gopls",
         }
 
         require("mason").setup()
@@ -75,18 +76,6 @@ return {
             map("n", "<leader>gi", vim.lsp.buf.implementation, bufopts)
             map("n", "<leader>ga", vim.lsp.buf.code_action, bufopts)
         end
-
-        require("which-key").register({
-            ["<leader>"] = {
-                g = {
-                    name = "+global",
-                    d = { name = "goto definition" },
-                    D = { name = "goto declaration" },
-                    i = { name = "goto implementation" },
-                    r = { name = "rename" },
-                }
-            }
-        })
 
         -- Setup LSPconfig
         local lspconfig = require('lspconfig')

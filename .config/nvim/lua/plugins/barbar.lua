@@ -6,7 +6,9 @@ return {
         "lewis6991/gitsigns.nvim",
         "nvim-tree/nvim-web-devicons",
     },
-    opts = {},
+    opts = {
+        auto_hide = 1,
+    },
     init = function()
         local binds = require("keybinds");
         vim.g.barbar_auto_setup = false

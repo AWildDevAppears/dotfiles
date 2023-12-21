@@ -15,6 +15,7 @@ return {
             vue = { "prettier" },
             html = { "prettier" },
             css = { "prettier" },
+            golang = { "gofumpt", "goimports" },
         }
     },
     event = { "BufWritePre" },

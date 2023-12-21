@@ -18,12 +18,16 @@ return {
         indent = {
             enable = true
         },
+        auto_install = true,
         ensure_installed = {
             "bash",
             "c",
             "css",
             "diff",
-            "html",
+            "go",
+            "gomod",
+            "gowork",
+            "gosum",
             "javascript",
             "jsdoc",
             "json",
