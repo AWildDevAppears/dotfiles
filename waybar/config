@@ -16,10 +16,10 @@
         "clock"
 	],
     "sway/window": {
-        "icon": true
+        "icon": false
     },
     "clock": {
-    "format": "{:%a %d %b %Y - %R}"
+        "format": "{:%a %d %b %Y - %R}"
     },
     "wlr/taskbar": {
         "on-click": "activate",

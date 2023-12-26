@@ -8,7 +8,7 @@ return {
             /**
             * Copyright (c) AWildDevAppears
             */
-        ]])
+        ]]),
         -- Advanced snippets
     },
     lua = {
@@ -18,7 +18,10 @@ return {
                 "$1:path",
                 opts = {},
             }
-        ]])
+        ]]),
+        parse("keybind", [[
+            vim.keybind.set("%1:mode", "%2:bind", "<Cmd>%3:command<cr>")
+        ]]),
         -- Advanced snippets
     },
     javascriptreact = {
@@ -30,7 +33,7 @@ return {
             export function ${TM_FILENAME}() {
                 return <div>...</div>
             }
-        ]])
+        ]]),
     },
     typescriptreact = {
         parse("prc", [[
@@ -45,7 +48,7 @@ return {
             export function ${TM_FILENAME}<I${TM_FILENAME}Props>() {
                 return <div>...</div>
             }
-        ]])
+       ]]),
     },
     vue = {
         parse("vuefile", [[
@@ -65,6 +68,6 @@ return {
                 }
             </style>
 
-        ]])
-    }
+        ]]),
+    },
 }

@@ -24,8 +24,6 @@ local bindings = {
     -- Sidebar
     toggle_sidebar = "<C-b>",
     focus_sidebar = "\\",
-
-
 }
 
 return bindings

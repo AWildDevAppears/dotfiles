@@ -49,11 +49,16 @@ return {
         local lspkind = require("lspkind")
 
         local opts = { noremap = true, silent = true }
+        vim.keymap.set("n", "<C-k>", "<Cmd>Lspsaga diagnostic_jump_prev<cr>")
         vim.keymap.set("n", "<C-j>", "<Cmd>Lspsaga diagnostic_jump_next<cr>", opts)
-        vim.keymap.set("n", "K", "<Cmd>Lspsaga hover_doc<cr>", opts)
+        vim.keymap.set("n", "<leader>K", "<Cmd>Lspsaga hover_doc<cr>", opts)
         vim.keymap.set("n", "<C-a>", "<Cmd>Lspsaga code_action<cr>", opts)
         vim.keymap.set({ "n", "t" }, "<A-t>", "<Cmd>Lspsaga term_toggle<cr>", opts)
         vim.keymap.set("n", "<leader>r", "<Cmd>Lspsaga rename<cr>", opts)
+        vim.keymap.set("n", "<leader>ga", "<Cmd>Lspsaga code_action<cr>", opts)
+        vim.keymap.set("n", "<leader>gd", "<Cmd>Lspsaga finder def<cr>", opts)
+        vim.keymap.set("n", "<leader>gD", "<Cmd>Lspsaga finder ref<cr>", opts)
+        vim.keymap.set("n", "<leader>gi", "<Cmd>Lspsaga finder impl<cr>", opts)
 
         ---@diagnostic disable-next-line: missing-fields
         cmp.setup({
@@ -76,37 +81,7 @@ return {
                 ["<C-e>"] = cmp.mapping.abort(),
                 ["<C-k>"] = cmp.mapping.select_prev_item(),
                 ["<C-j>"] = cmp.mapping.select_next_item(),
-                ["<C-Space>"] = cmp.mapping.complete(),
-                ["<CR>"] = cmp.mapping.confirm({
-                    behavior = cmp.ConfirmBehavior.Replace,
-                    select = true,
-                }),
-                ["<Space>"] = cmp.mapping(function(fallback)
-                        if cmp.visible() then
-                            cmp.select_next_item()
-                        elseif luasnip.expand_or_jumpable() then
-                            luasnip.expand_or_jump()
-                        else
-                            fallback()
-                        end
-                    end,
-                    {
-                        "i",
-                        "s"
-                    }),
-                ["<S-Space>"] = cmp.mapping(function(fallback)
-                        if cmp.visible() then
-                            cmp.select_prev_item()
-                        elseif luasnip.jumpable(-1) then
-                            luasnip.jump(-1)
-                        else
-                            fallback()
-                        end
-                    end,
-                    {
-                        "i",
-                        "s"
-                    }),
+                ["<Tab>"] = cmp.mapping.confirm({ select = true }),
             }),
             sources = {
                 {
@@ -152,7 +127,24 @@ return {
         cmp.setup.filetype("gitcommit", {
             sources = cmp.config.sources({
                 { name = "git" },
+            }, {
                 { name = "buffer" },
+            })
+        })
+
+        cmp.setup.cmdline(":", {
+            mapping = cmp.mapping.preset.cmdline(),
+            sources = cmp.config.sources({
+                { name = "path", },
+            }, {
+                { name = "cmdline", }
+            })
+        })
+
+        cmp.setup.cmdline({ "/", "?" }, {
+            mapping = cmp.mapping.preset.cmdline(),
+            sources = cmp.config.sources({
+                { name = "buffer", },
             })
         })
     end,
