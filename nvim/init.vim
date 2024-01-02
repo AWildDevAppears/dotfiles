@@ -3,4 +3,4 @@ set termguicolors
 lua require("init")
 lua require("options")
 lua require("remap")
-
+lua require("skeletons")

@@ -103,5 +103,8 @@ return {
                 templ = "templ"
             }
         })
+
+        -- Display a floating modal when I am hovered on a line with an error.
+        vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, { focus = false })]]
     end,
 }

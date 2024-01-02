@@ -30,7 +30,7 @@ return {
             * Copyright (c) AWildDevAppears
             */
 
-            export function ${TM_FILENAME}() {
+            export function ${TM_FILENAME_BASE}() {
                 return <div>...</div>
             }
         ]]),
@@ -41,11 +41,11 @@ return {
             * Copyright (c) AWildDevAppears
             */
 
-            interface I${TM_FILENAME}Props {
+            interface I${TM_FILENAME_BASE}Props {
 
             }
 
-            export function ${TM_FILENAME}<I${TM_FILENAME}Props>() {
+            export function ${TM_FILENAME_BASE}<I${TM_FILENAME_BASE}Props>() {
                 return <div>...</div>
             }
        ]]),

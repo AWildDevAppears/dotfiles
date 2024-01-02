@@ -7,7 +7,13 @@ return {
         "MunifTanjim/nui.nvim",
         "3rd/image.nvim"
     },
-    opts = {},
+    opts = {
+        filesystem = {
+            filtered_items = {
+                hide_dotfiles = false,
+            }
+        }
+    },
     init = function()
         vim.cmd([[nnoremap \ :Neotree toggle<cr>]])
         vim.cmd([[nnoremap <C-b> :Neotree toggle<cr>]])
