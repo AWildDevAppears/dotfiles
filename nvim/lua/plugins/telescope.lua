@@ -6,6 +6,7 @@ return {
         "folke/which-key.nvim",
     },
     opts = {},
+    lazy = true,
     init = function()
         local builtin = require("telescope.builtin")
 

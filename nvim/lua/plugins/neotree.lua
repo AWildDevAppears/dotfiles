@@ -17,5 +17,6 @@ return {
     init = function()
         vim.cmd([[nnoremap \ :Neotree toggle<cr>]])
         vim.cmd([[nnoremap <C-b> :Neotree toggle<cr>]])
-    end
+    end,
+    enabled = false,
 }

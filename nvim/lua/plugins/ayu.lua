@@ -20,5 +20,5 @@ return {
         ayu.colorscheme()
 
         vim.cmd("colorscheme ayu-mirage")
-    end
+    end,
 }

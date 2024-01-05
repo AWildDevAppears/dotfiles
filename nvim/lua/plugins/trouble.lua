@@ -4,30 +4,44 @@ return {
         "nvim-tree/nvim-web-devicons",
         "folke/which-key.nvim"
     },
+    lazy = true,
     opts = {
     },
-    init = function()
-        vim.keymap.set("n", "<leader>pb", function() require("trouble").toggle() end)
-        vim.keymap.set("n", "<leader>pw", function() require("trouble").toggle("workspace_diagnostics") end)
-        vim.keymap.set("n", "<leader>pd", function() require("trouble").toggle("document_diagnostics") end)
-        vim.keymap.set("n", "<leader>pq", function() require("trouble").toggle("quickfix") end)
-        vim.keymap.set("n", "<leader>pl", function() require("trouble").toggle("loclist") end)
-        vim.keymap.set("n", "gR", function() require("trouble").toggle("lsp_references") end)
-        vim.keymap.set("n", "<leader>pt", "<Cmd>TodoTrouble<cr>", { silent = true })
-
-        local wk = require("which-key")
-
-        wk.register({
-            ["<leader>"] = {
-                p = {
-                    name = "+trouble",
-                    b = { "toggle" },
-                    w = { "toggle workspace" },
-                    d = { "document" },
-                    q = { "quickfix" },
-                    l = { "loclist" },
-                }
-            }
-        })
-    end,
+    keys = {
+        {
+            "<leader>tt",
+            function()
+                require("trouble").toggle()
+            end,
+            mode = { "n" },
+        },
+        {
+            "<leader>tw",
+            function()
+                require("trouble").toggle("workspace_diagnostics")
+            end,
+            mode = { "n" },
+        },
+        {
+            "<leader>td",
+            function()
+                require("trouble").toggle("document_diagnostics")
+            end,
+            mode = { "n" },
+        },
+        {
+            "<leader>tq",
+            function()
+                require("trouble").toggle("quickfix")
+            end,
+            mode = { "n" },
+        },
+        {
+            "<leader>tl",
+            function()
+                require("trouble").toggle("loclist")
+            end,
+            mode = { "n" },
+        },
+    },
 }
