@@ -34,7 +34,17 @@ return {
         {
             "nvimdev/lspsaga.nvim",
             config = function()
-                require("lspsaga").setup({})
+                require("lspsaga").setup({
+                    symbols_in_winbar = {
+                        enable = true,
+                    },
+                    implement = {
+                        enable = true,
+                    },
+                    code_action = {
+                        extend_gitsigns = true,
+                    }
+                })
             end,
             dependencies = {
                 "nvim-treesitter/nvim-treesitter",
@@ -51,7 +61,7 @@ return {
         local opts = { noremap = true, silent = true }
         vim.keymap.set("n", "<C-k>", "<Cmd>Lspsaga diagnostic_jump_prev<cr>")
         vim.keymap.set("n", "<C-j>", "<Cmd>Lspsaga diagnostic_jump_next<cr>", opts)
-        vim.keymap.set("n", "<leader>K", "<Cmd>Lspsaga hover_doc<cr>", opts)
+        vim.keymap.set("n", "K", "<Cmd>Lspsaga hover_doc<cr>", opts)
         vim.keymap.set("n", "<C-a>", "<Cmd>Lspsaga code_action<cr>", opts)
         vim.keymap.set({ "n", "t" }, "<A-t>", "<Cmd>Lspsaga term_toggle<cr>", opts)
         vim.keymap.set("n", "<leader>r", "<Cmd>Lspsaga rename<cr>", opts)
