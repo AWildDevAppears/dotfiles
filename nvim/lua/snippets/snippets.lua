@@ -70,4 +70,16 @@ return {
 
         ]]),
     },
+    go = {
+        parse("forrange", [[
+            for $1:key, $2:value := range $3:array {
+                $4"content"
+            }
+        ]]),
+        parse("iferr", [[
+            if err != nil {
+                $1:panic
+            }
+        ]]),
+    }
 }

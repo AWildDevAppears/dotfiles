@@ -31,72 +31,44 @@ return {
         },
     },
     init = function()
-        local servers = {
-            -- Lua
-            "lua_ls",
-            -- Rust
-            "rust_analyzer",
-            -- CSS
-            "cssls",
-            "cssmodules_ls",
-            "emmet_ls",
-            -- HTML
-            "html",
-            -- JS
-            "jsonls",
-            "tsserver",
-            -- Vue
-            "vuels",
-            -- Markdown
-            "zk",
-            -- Python
-            "pyright",
-            -- TOML
-            "taplo",
+        local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-            -- Slint
-            "slint_lsp",
-
-            -- GOlang
-            "gopls",
-            "templ",
-        }
+        -- Setup LSPconfig
+        local lspconfig = require('lspconfig')
 
         require("mason").setup()
         require("mason-lspconfig").setup({
             automatic_installation = true,
-        })
-
-        local capabilities = require("cmp_nvim_lsp").default_capabilities()
-
-        local map = vim.keymap.set
-        -- Setup LSPconfig
-        local lspconfig = require('lspconfig')
-
-        for _, lsp in ipairs(servers) do
-            if lsp == "lua_ls" then
-                lspconfig[lsp].setup({
-                    capabilities = capabilities,
-                    settings = {
-                        Lua = {
-                            completion = {
-                                callSnippet = "Replace",
+            handlers = {
+                function(server_name)
+                    lspconfig[server_name].setup({
+                        capabilities = capabilities,
+                    })
+                end,
+                ["lua_ls"] = function()
+                    lspconfig.lua_ls.setup({
+                        capabilities = capabilities,
+                        settings = {
+                            Lua = {
+                                completion = {
+                                    callSnippet = "Replace",
+                                },
+                                diagnostics = {
+                                    globals = "vim"
+                                }
                             }
-                        }
-                    },
-                })
-            elseif lsp == "tsserver" then
-                lspconfig[lsp].setup({
-                    capabilities = capabilities,
-                    filetypes = { "typescript", "typescriptreact", "typescript.tsx", "vue" },
-                    cmd = { "typescript-language-server", "--stdio" }
-                })
-            else
-                lspconfig[lsp].setup({
-                    capabilities = capabilities,
-                })
-            end
-        end
+                        },
+                    })
+                end,
+                ["tsserver"] = function()
+                    lspconfig.tsserver.setup({
+                        capabilities = capabilities,
+                        filetypes = { "typescript", "typescriptreact", "typescript.tsx", "vue" },
+                        cmd = { "typescript-language-server", "--stdio" }
+                    })
+                end
+            }
+        })
 
         vim.filetype.add({
             extension = {
@@ -104,7 +76,8 @@ return {
             }
         })
 
-        -- Display a floating modal when I am hovered on a line with an error.
-        vim.cmd [[autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, { focus = false })]]
+        vim.keymap.set("n", "<leader>J", function()
+            vim.diagnostic.open_float(nil, { focus = false })
+        end)
     end,
 }

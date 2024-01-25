@@ -6,9 +6,6 @@ return {
             async = false,
             quiet = false,
         },
-        formatters = {
-            injected = { options = { ignore_errors = true } },
-        },
         format_on_save = {
             timeout_ms = 500,
             lsp_fallback = true,
@@ -29,25 +26,8 @@ return {
     dependencies = { "mason.nvim" },
     lazy = true,
     cmd = { "ConformInfo" },
-    keys = {
-        {
-            "<leader>cF",
-            function()
-                require("conform").format({ formatters = { "injected" } })
-            end,
-            mode = { "n", "v" },
-            desc = "Format injected language"
-        }
-    },
     init = function()
         vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
-
-        vim.api.nvim_create_autocmd("BufWritePre", {
-            pattern = "*",
-            callback = function(args)
-                require("conform").format({ bufnr = args.buf })
-            end,
-        })
 
         vim.api.nvim_create_user_command("Format", function(args)
             local range = nil
@@ -60,5 +40,7 @@ return {
             end
             require("conform").format({ async = true, lsp_fallback = true, range = range })
         end, { range = true })
+
+        vim.keymap.set("n", "<leader>lu", "<cmd>Format<cr>", {})
     end
 }
