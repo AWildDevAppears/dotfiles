@@ -45,6 +45,17 @@ return {
                         capabilities = capabilities,
                     })
                 end,
+                ["bashls"] = function ()
+                    lspconfig.bashls.setup({
+                        capabilities = capabilities,
+                        filetypes = {
+                            "sh",
+                            "zsh",
+                            "fish"
+                        },
+                        cmd = { "bash-language-server", "start" },
+                    })
+                end,
                 ["lua_ls"] = function()
                     lspconfig.lua_ls.setup({
                         capabilities = capabilities,
@@ -63,10 +74,30 @@ return {
                 ["tsserver"] = function()
                     lspconfig.tsserver.setup({
                         capabilities = capabilities,
-                        filetypes = { "typescript", "typescriptreact", "typescript.tsx", "vue" },
+                        filetypes = {
+                            "typescript",
+                            "typescriptreact",
+                            "typescript.tsx",
+                            "vue",
+                            "javascript",
+                            "javascriptreact",
+                            "javascript.jsx",
+                        },
                         cmd = { "typescript-language-server", "--stdio" }
                     })
-                end
+                end,
+                ["pyright"] = function ()
+                    lspconfig.pyright.setup({
+                        capabilities = capabilities,
+                        settings = {
+                            python = {
+                                analysis = {
+                                    typeCheckingMode = "off",
+                                },
+                            },
+                        },
+                    })
+                end,
             }
         })
 
