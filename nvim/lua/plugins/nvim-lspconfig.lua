@@ -45,7 +45,7 @@ return {
                         capabilities = capabilities,
                     })
                 end,
-                ["bashls"] = function ()
+                ["bashls"] = function()
                     lspconfig.bashls.setup({
                         capabilities = capabilities,
                         filetypes = {
@@ -86,13 +86,68 @@ return {
                         cmd = { "typescript-language-server", "--stdio" }
                     })
                 end,
-                ["pyright"] = function ()
+                ["pyright"] = function()
                     lspconfig.pyright.setup({
                         capabilities = capabilities,
                         settings = {
                             python = {
                                 analysis = {
                                     typeCheckingMode = "off",
+                                    strictListInference = true,
+                                    strictDictionaryInference = true,
+                                    strictSetInference = true,
+                                },
+
+                            },
+                        },
+                    })
+                end,
+                ["pylsp"] = function()
+                    lspconfig.pylsp.setup({
+                        capabilities = capabilities,
+                        settings = {
+                            pylsp = {
+                                configurationSources = { "flake8" },
+                                plugins = {
+                                    autopep8 = {
+                                        enabled = false,
+                                    },
+                                    yapf = {
+                                        enabled = true,
+                                    },
+
+                                    -- Auto import
+                                    rope_autoimport = {
+                                        enabled = true,
+                                        completions = {
+                                            enabled = true,
+                                        }
+                                    },
+
+                                    -- Definitions
+                                    jedi_definitions = {
+                                        enabled = true,
+                                    },
+                                    jedi_hover = {
+                                        enabled = false,
+                                    },
+
+                                    -- Completion
+                                    rope_completion = {
+                                        enabled = true,
+                                    },
+                                    jedi_completion = {
+                                        enabled = true,
+                                        include_class_objects = true,
+                                        include_function_objects = true,
+                                        fuzzy = true,
+                                        eager = true,
+                                    },
+
+                                    pycodestyle = {
+                                        ignore = { "W100", "E501", "D100" },
+                                    },
+
                                 },
                             },
                         },

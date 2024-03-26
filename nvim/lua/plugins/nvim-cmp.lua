@@ -24,11 +24,6 @@ return {
             "saadparwaiz1/cmp_luasnip",
         },
         {
-            "windwp/nvim-autopairs",
-            event = "InsertEnter",
-            opts = {}
-        },
-        {
             "onsails/lspkind.nvim",
         },
         {
@@ -96,9 +91,15 @@ return {
             sources = {
                 {
                     name = "nvim_lsp",
+                    priority = 9,
                 },
                 {
                     name = "nvim_lua",
+                    priority = 8,
+                },
+                {
+                    name = "buffer",
+                    priority = 7,
                 },
                 {
                     name = "luasnip",
@@ -106,12 +107,20 @@ return {
                         use_show_condition = false,
                         show_autosnippets = true,
                     },
-                },
-                {
-                    name = "buffer",
+                    priority = 6,
                 },
                 {
                     name = "path",
+                    priority = 5,
+                },
+            },
+            ---@diagnostic disable-next-line: missing-fields
+            sorting = {
+                comparators = {
+                    cmp.config.compare.exact,
+                    cmp.config.compare.score,
+                    cmp.config.compare.offset,
+                    cmp.config.compare.kind,
                 },
             },
             enabled = function()
@@ -126,12 +135,6 @@ return {
                 end
             end
         })
-
-        local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-        cmp.event:on(
-            "confirm_done",
-            cmp_autopairs.on_confirm_done()
-        )
 
         ---@diagnostic disable-next-line: missing-fields
         cmp.setup.filetype("gitcommit", {
