@@ -81,5 +81,11 @@ return {
                 $1:panic
             }
         ]]),
-    }
+    },
+    python = {
+        parse("forrange", [[
+            for $1:key in range(len($2:array))
+                # Do stuff
+        ]])
+    },
 }
