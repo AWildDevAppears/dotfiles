@@ -37,6 +37,7 @@ return {
             "luap",
             "markdown",
             "markdown_inline",
+            "pkl",
             "python",
             "query",
             "regex",
@@ -119,6 +120,9 @@ return {
                     desc = "Toggle Treesitter Context",
                 },
             },
+        },
+        {
+            "apple/pkl-neovim",
         },
     },
     cmd = { "TSUpdateSync", "TSUpdate", "TSInstall" },
