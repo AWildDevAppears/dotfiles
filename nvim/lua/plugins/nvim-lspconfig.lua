@@ -86,71 +86,33 @@ return {
                         cmd = { "typescript-language-server", "--stdio" }
                     })
                 end,
-                ["pyright"] = function()
-                    lspconfig.pyright.setup({
+                ["basedpyright"] = function()
+                    lspconfig.basedpyright.setup({
                         capabilities = capabilities,
                         settings = {
                             python = {
                                 analysis = {
-                                    typeCheckingMode = "off",
+                                    -- typeCheckingMode = "off",
                                     strictListInference = true,
                                     strictDictionaryInference = true,
                                     strictSetInference = true,
+                                    diagnosticMode = "openFilesOnly",
+                                    stupPath = "./typings",
+
                                 },
 
                             },
                         },
                     })
                 end,
-                ["pylsp"] = function()
-                    lspconfig.pylsp.setup({
+                ["ruff_lsp"] = function()
+                    lspconfig.ruff_lsp.setup({
                         capabilities = capabilities,
-                        settings = {
-                            pylsp = {
-                                configurationSources = { "flake8" },
-                                plugins = {
-                                    autopep8 = {
-                                        enabled = false,
-                                    },
-                                    yapf = {
-                                        enabled = true,
-                                    },
-
-                                    -- Auto import
-                                    rope_autoimport = {
-                                        enabled = true,
-                                        completions = {
-                                            enabled = true,
-                                        }
-                                    },
-
-                                    -- Definitions
-                                    jedi_definitions = {
-                                        enabled = true,
-                                    },
-                                    jedi_hover = {
-                                        enabled = false,
-                                    },
-
-                                    -- Completion
-                                    rope_completion = {
-                                        enabled = true,
-                                    },
-                                    jedi_completion = {
-                                        enabled = true,
-                                        include_class_objects = true,
-                                        include_function_objects = true,
-                                        fuzzy = true,
-                                        eager = true,
-                                    },
-
-                                    pycodestyle = {
-                                        ignore = { "W100", "E501", "D100" },
-                                    },
-
-                                },
-                            },
-                        },
+                        on_attach = function(client, buffnr)
+                            if client.name == "ruff_lsp" then
+                                client.server_capabilities.hoverProvider = false
+                            end
+                        end
                     })
                 end,
             }
