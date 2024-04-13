@@ -124,6 +124,10 @@ return {
             }
         })
 
+        vim.diagnostic.config({
+            virtual_text = false
+        })
+
         vim.keymap.set("n", "<leader>J", function()
             vim.diagnostic.open_float(nil, { focus = false })
         end)
