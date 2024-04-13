@@ -52,18 +52,19 @@ return {
 
         local cmp = require("cmp")
         local lspkind = require("lspkind")
+        local keybinds = require("keybinds")
 
         local opts = { noremap = true, silent = true }
-        vim.keymap.set("n", "<C-k>", "<Cmd>Lspsaga diagnostic_jump_prev<cr>")
-        vim.keymap.set("n", "<C-j>", "<Cmd>Lspsaga diagnostic_jump_next<cr>", opts)
-        vim.keymap.set("n", "K", "<Cmd>Lspsaga hover_doc<cr>", opts)
-        vim.keymap.set("n", "<C-a>", "<Cmd>Lspsaga code_action<cr>", opts)
-        vim.keymap.set({ "n", "t" }, "<A-t>", "<Cmd>Lspsaga term_toggle<cr>", opts)
-        vim.keymap.set("n", "<leader>r", "<Cmd>Lspsaga rename<cr>", opts)
-        vim.keymap.set("n", "<leader>ga", "<Cmd>Lspsaga code_action<cr>", opts)
-        vim.keymap.set("n", "<leader>gd", "<Cmd>Lspsaga finder def<cr>", opts)
-        vim.keymap.set("n", "<leader>gD", "<Cmd>Lspsaga finder ref<cr>", opts)
-        vim.keymap.set("n", "<leader>gi", "<Cmd>Lspsaga finder impl<cr>", opts)
+        vim.keymap.set("n", keybinds.hover_docs, "<Cmd>Lspsaga hover_doc<cr>", opts)
+        vim.keymap.set({ "n", "t" }, keybinds.toggle_terminal, "<Cmd>Lspsaga term_toggle<cr>", opts)
+        vim.keymap.set("n", keybinds.rename, "<Cmd>Lspsaga rename<cr>", opts)
+        vim.keymap.set("n", keybinds.code_actions, "<Cmd>Lspsaga code_action<cr>", opts)
+        vim.keymap.set("n", keybinds.goto_type_definition, "<Cmd>Lspsaga goto_type_definition<cr>", opts)
+        vim.keymap.set("n", keybinds.goto_definition, "<Cmd>Lspsaga goto_definition<cr>", opts)
+        vim.keymap.set("n", keybinds.goto_references, "<Cmd>Lspsaga finder<cr>", opts)
+
+        vim.api.nvim_create_user_command("Term", "<Cmd>Lspsaga term_toggle<cr>", {})
+        vim.api.nvim_create_user_command("Te", "<Cmd>Lspsaga term_toggle<cr>", {})
 
         ---@diagnostic disable-next-line: missing-fields
         cmp.setup({

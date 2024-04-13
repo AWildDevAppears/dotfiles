@@ -1,10 +1,12 @@
+local binds = require("keybinds")
+
 return {
     "folke/flash.nvim",
     event = "VeryLazy",
     opts = {},
     keys = {
         {
-            "s",
+            binds.jump_normal,
             mode = { "n", "x", "o" },
             function()
                 require("flash").jump()
@@ -12,7 +14,7 @@ return {
             desc = "Jump",
         },
         {
-            "S",
+            binds.jump_treesitter,
             mode = { "n", "x", "o" },
             function()
                 require("flash").treesitter()

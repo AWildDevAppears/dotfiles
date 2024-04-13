@@ -6,10 +6,10 @@ return {
             async = false,
             quiet = false,
         },
-        format_on_save = {
-            timeout_ms = 500,
-            lsp_fallback = true,
-        },
+        -- format_on_save = {
+        --     timeout_ms = 500,
+        --     lsp_fallback = true,
+        -- },
         formattters_by_ft = {
             ["*"] = { "codespell", "trim_whitespace" },
             lua = { "stylua" },
@@ -34,12 +34,12 @@ return {
             command = [[%s/\s\+$//e]],
         })
 
-        vim.api.nvim_create_autocmd("BufWritePre", {
-          pattern = "*",
-          callback = function(args)
-            require("conform").format({ bufnr = args.buf })
-          end,
-        })
+        -- vim.api.nvim_create_autocmd("BufWritePre", {
+        --   pattern = "*",
+        --   callback = function(args)
+        --     require("conform").format({ bufnr = args.buf })
+        --   end,
+        -- })
 
         vim.api.nvim_create_user_command("Format", function(args)
             local range = nil
@@ -53,6 +53,9 @@ return {
             require("conform").format({ async = true, lsp_fallback = true, range = range })
         end, { range = true })
 
-        vim.keymap.set("n", "<leader>lu", "<cmd>Format<cr>", {})
+        local binds = require("keybinds")
+
+        vim.keymap.set("n", binds.file_format, "<cmd>Format<cr>", {})
+        vim.keymap.set("n", binds.macro_file_format, "<cmd>Format<cr>", {})
     end
 }
