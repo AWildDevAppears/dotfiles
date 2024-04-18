@@ -42,6 +42,8 @@ local bindings = {
     diag_step_out = "<F12>",
     diag_toggle_breakpoint = "<leader>db",
     diag_open_repl = "<leader>dr",
+    diag_next = "]d",
+    diag_prev = "[d",
 
     -- Terminal
     toggle_terminal = "<A-t>",

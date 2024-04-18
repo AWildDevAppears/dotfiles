@@ -62,6 +62,8 @@ return {
         vim.keymap.set("n", keybinds.goto_type_definition, "<Cmd>Lspsaga goto_type_definition<cr>", opts)
         vim.keymap.set("n", keybinds.goto_definition, "<Cmd>Lspsaga goto_definition<cr>", opts)
         vim.keymap.set("n", keybinds.goto_references, "<Cmd>Lspsaga finder<cr>", opts)
+        vim.keymap.set("n", keybinds.diag_next, function() vim.diagnostic.goto_next() end)
+        vim.keymap.set("n", keybinds.diag_prev, function() vim.diagnostic.goto_prev() end)
 
         vim.api.nvim_create_user_command("Term", "<Cmd>Lspsaga term_toggle<cr>", {})
         vim.api.nvim_create_user_command("Te", "<Cmd>Lspsaga term_toggle<cr>", {})
