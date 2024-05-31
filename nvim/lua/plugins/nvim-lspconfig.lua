@@ -37,6 +37,8 @@ return {
             lineFoldingOnly = true
         }
 
+        vim.lsp.inlay_hint.enable()
+
         -- Setup LSPconfig
         local lspconfig = require('lspconfig')
 
@@ -70,7 +72,8 @@ return {
                                 },
                                 diagnostics = {
                                     globals = "vim"
-                                }
+                                },
+                                hint = { enable = true },
                             }
                         },
                     })
@@ -86,6 +89,21 @@ return {
                             "javascript",
                             "javascriptreact",
                             "javascript.jsx",
+                        },
+                        settings = {
+                            typescript = {
+                                inlayHints = {
+                                    includeInlayParameterNameHints = "all",
+                                },
+                            },
+                            javascript = {
+                                inlayHints = {
+                                    includeInlayParameterNameHints = "all",
+                                },
+                            },
+                        },
+                        inlay_hints = {
+                            enabled = true,
                         },
                         cmd = { "typescript-language-server", "--stdio" }
                     })

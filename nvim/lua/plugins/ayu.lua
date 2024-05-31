@@ -3,7 +3,6 @@
 return {
     "Shatur/neovim-ayu",
     opts = {
-        mirage = true,
         overrides = {
             Comment = { fg = "#F29E74" }, -- Comment color
             LineNr = { fg = "#F29E74" },
@@ -19,6 +18,6 @@ return {
 
         ayu.colorscheme()
 
-        vim.cmd("colorscheme ayu-mirage")
+        vim.cmd("colorscheme ayu-dark")
     end,
 }
