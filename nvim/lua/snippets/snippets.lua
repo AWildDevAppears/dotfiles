@@ -49,6 +49,11 @@ return {
                 return <div>...</div>
             }
        ]]),
+        parse("fori", [[
+            for (const idx = 0; idx < $1:array.length; idx++) {
+                $2:content
+            }
+        ]]),
     },
     vue = {
         parse("vuefile", [[

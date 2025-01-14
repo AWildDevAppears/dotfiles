@@ -3,10 +3,12 @@
 return {
     "Shatur/neovim-ayu",
     opts = {
+        mirage = false,
         overrides = {
             Comment = { fg = "#F29E74" }, -- Comment color
             LineNr = { fg = "#F29E74" },
             NotifyBackground = { bg = "#1F2430" },
+            LspInlayHint = { fg = "#707A8C" }
         }
     },
     config = function(_, opts)

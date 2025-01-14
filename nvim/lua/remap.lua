@@ -17,9 +17,6 @@ keymap("n", "<a-k>", "<esc>:m .-2<cr>==gi", opts) -- Alt-k
 keymap("i", "jk", "<esc>", opts) -- Insert mode -> jk -> Normal mode
 keymap("i", "kj", "<esc>", opts) -- Insert mode -> kj -> Normal mode
 
--- Remove highlight when we hit escape post search
-keymap("n", "<Esc>", "<cmd>nohlsearch<cr>", opts)
-
 vim.api.nvim_create_autocmd('TextYankPost', {
     desc = 'Highlight when yanking (copying) text',
     group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
@@ -27,3 +24,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
         vim.highlight.on_yank()
     end,
 })
+
+-- Disable highlight
+keymap("n", "<Esc>", "<cmd>nohlsearch<cr>", {});

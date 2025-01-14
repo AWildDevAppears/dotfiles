@@ -24,8 +24,8 @@ local bindings = {
     file_format = "<leader>fi",
 
     -- Comments
-    comment = "<leader>c",
-    block_comment = "<leader>b",
+    comment = "<leader>gc",
+    block_comment = "<leader>gb",
 
     -- Sidebar
     toggle_sidebar = "<C-b>",

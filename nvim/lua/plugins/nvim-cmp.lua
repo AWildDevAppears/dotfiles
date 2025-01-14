@@ -38,7 +38,10 @@ return {
                     },
                     code_action = {
                         extend_gitsigns = true,
-                    }
+                    },
+                    lightbulb = {
+                        virtual_text = false,
+                    },
                 })
             end,
             dependencies = {
@@ -55,9 +58,10 @@ return {
         local keybinds = require("keybinds")
 
         local opts = { noremap = true, silent = true }
+        -- TODO: Merge as much lspsaga functionality into telescope as possible.
         vim.keymap.set("n", keybinds.hover_docs, "<Cmd>Lspsaga hover_doc<cr>", opts)
         vim.keymap.set({ "n", "t" }, keybinds.toggle_terminal, "<Cmd>Lspsaga term_toggle<cr>", opts)
-        vim.keymap.set("n", keybinds.rename, "<Cmd>Lspsaga rename<cr>", opts)
+        vim.keymap.set("n", keybinds.rename, vim.lsp.buf.rename, opts)
         vim.keymap.set("n", keybinds.code_actions, "<Cmd>Lspsaga code_action<cr>", opts)
         vim.keymap.set("n", keybinds.goto_type_definition, "<Cmd>Lspsaga goto_type_definition<cr>", opts)
         vim.keymap.set("n", keybinds.goto_definition, "<Cmd>Lspsaga goto_definition<cr>", opts)

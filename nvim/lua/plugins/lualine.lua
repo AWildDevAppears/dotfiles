@@ -5,7 +5,7 @@ return {
     },
     opts = {
         options = {
-            theme = "ayu_mirage",
+            theme = "ayu_dark",
         },
         tabline = {
             lualine_a = {
