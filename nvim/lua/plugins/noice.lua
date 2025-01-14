@@ -9,6 +9,9 @@ return {
                 ["vim.lsp.util.stylize_markdown"] = true,
                 ["cmp.entry.get_documentation"] = true,
             },
+            signature = {
+                auto_open = { enabled = true },
+            },
         },
         presets = {
             bottom_search = true,
@@ -20,5 +23,4 @@ return {
     dependencies = {
         "MunifTanjim/nui.nvim",
     },
-    enabled = false,
 }

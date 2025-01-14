@@ -26,6 +26,22 @@ return {
             ["g."] = "actions.toggle_hidden",
             ["g\\"] = "actions.toggle_trash",
         },
+        view_options = {
+            show_hidden = true,
+            is_always_hidden = function(name, buffnr)
+                local hidden = {
+                    "node_modules"
+                }
+
+                for _, value in pairs(hidden) do
+                   if name == value then
+                        return true
+                   end
+                end
+
+                return false
+            end
+        },
     },
     init = function()
         vim.keymap.set("n", "\\", function()
