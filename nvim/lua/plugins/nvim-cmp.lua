@@ -26,29 +26,6 @@ return {
         {
             "onsails/lspkind.nvim",
         },
-        {
-            "nvimdev/lspsaga.nvim",
-            config = function()
-                require("lspsaga").setup({
-                    symbols_in_winbar = {
-                        enable = true,
-                    },
-                    implement = {
-                        enable = true,
-                    },
-                    code_action = {
-                        extend_gitsigns = true,
-                    },
-                    lightbulb = {
-                        virtual_text = false,
-                    },
-                })
-            end,
-            dependencies = {
-                "nvim-treesitter/nvim-treesitter",
-                "nvim-tree/nvim-web-devicons",
-            }
-        }
     },
     init = function()
         local luasnip = require("luasnip")
@@ -59,18 +36,6 @@ return {
 
         local opts = { noremap = true, silent = true }
         -- TODO: Merge as much lspsaga functionality into telescope as possible.
-        vim.keymap.set("n", keybinds.hover_docs, "<Cmd>Lspsaga hover_doc<cr>", opts)
-        vim.keymap.set({ "n", "t" }, keybinds.toggle_terminal, "<Cmd>Lspsaga term_toggle<cr>", opts)
-        vim.keymap.set("n", keybinds.rename, vim.lsp.buf.rename, opts)
-        vim.keymap.set("n", keybinds.code_actions, "<Cmd>Lspsaga code_action<cr>", opts)
-        vim.keymap.set("n", keybinds.goto_type_definition, "<Cmd>Lspsaga goto_type_definition<cr>", opts)
-        vim.keymap.set("n", keybinds.goto_definition, "<Cmd>Lspsaga goto_definition<cr>", opts)
-        vim.keymap.set("n", keybinds.goto_references, "<Cmd>Lspsaga finder<cr>", opts)
-        vim.keymap.set("n", keybinds.diag_next, function() vim.diagnostic.goto_next() end)
-        vim.keymap.set("n", keybinds.diag_prev, function() vim.diagnostic.goto_prev() end)
-
-        vim.api.nvim_create_user_command("Term", "<Cmd>Lspsaga term_toggle<cr>", {})
-        vim.api.nvim_create_user_command("Te", "<Cmd>Lspsaga term_toggle<cr>", {})
 
         ---@diagnostic disable-next-line: missing-fields
         cmp.setup({
